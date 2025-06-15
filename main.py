@@ -42,9 +42,9 @@ def generate(evaluate, output_json, count):
             if output_json:
                 result = {
                     "id": question.id,
-                    "content": question.content,
+                    "question": question.question,
                     "choices": question.choices,
-                    "correct_answer": question.correct_answer
+                    "answer": question.answer
                 }
             else:
                 if count > 1:
@@ -56,7 +56,7 @@ def generate(evaluate, output_json, count):
                     click.echo("Generated Question:")
                     click.echo("="*50)
                 click.echo(question.format_for_display())
-                click.echo(f"\nCorrect Answer: {question.correct_answer}")
+                click.echo(f"\nCorrect Answer: {question.answer}")
                 click.echo("="*50)
             
             # Evaluate if requested
@@ -109,7 +109,7 @@ def evaluate_file(question_json):
         click.echo("Question:")
         click.echo("="*50)
         click.echo(question.format_for_display())
-        click.echo(f"\nCorrect Answer: {question.correct_answer}")
+        click.echo(f"\nCorrect Answer: {question.answer}")
         
         click.echo("\n" + "-"*50)
         click.echo("Accuracy Evaluation:")
@@ -176,9 +176,9 @@ def batch(count, output):
                 # Store result
                 result = {
                     "id": question.id,
-                    "content": question.content,
+                    "question": question.question,
                     "choices": question.choices,
-                    "correct_answer": question.correct_answer,
+                    "answer": question.answer,
                     "accuracy_verified": evaluation['correct']
                 }
                 results.append(result)

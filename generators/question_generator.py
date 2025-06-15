@@ -18,7 +18,6 @@ class QuestionGenerator:
         """Generate multiple SAT math questions in a single API call"""
         
         prompt = get_generate_questions_prompt(count)
-        print(prompt)
         
         response = self.client.messages.create(
             model="claude-3-5-sonnet-20241022",

@@ -44,9 +44,9 @@ POST /generate-question
 Response:
 {
     "id": "uuid",
-    "content": "If 3x + 7 = 22, what is the value of x?",
+    "question": "If 3x + 7 = 22, what is the value of x?",
     "choices": { A: 3, B: 5, C: 7, D: 15 },
-    "correct_answer": "B",
+    "answer": "B",
 }
 ```
 

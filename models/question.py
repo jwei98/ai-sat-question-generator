@@ -5,9 +5,9 @@ from pydantic import BaseModel, Field, field_validator
 
 class Question(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
-    content: str
+    question: str
     choices: Dict[str, str]
-    correct_answer: str
+    answer: str
 
     @field_validator('choices')
     def validate_choices(cls, v):
@@ -18,15 +18,15 @@ class Question(BaseModel):
             raise ValueError("Choices must be labeled A, B, C, D")
         return v
 
-    @field_validator('correct_answer')
-    def validate_correct_answer(cls, v, info):
+    @field_validator('answer')
+    def validate_answer(cls, v, info):
         if 'choices' in info.data and v not in info.data['choices']:
             raise ValueError(f"Correct answer {v} must be one of the choices")
         return v
 
     def format_for_display(self) -> str:
         """Format question for display"""
-        lines = [self.content, ""]
+        lines = [self.question, ""]
         for key in sorted(self.choices.keys()):
             lines.append(f"{key}) {self.choices[key]}")
         return "\n".join(lines)

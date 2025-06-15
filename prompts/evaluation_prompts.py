@@ -18,7 +18,7 @@ Return a JSON response describing the correctness of the question/answer pair wi
 
 Here is the question and answer:
 <question>
-{question.content}
+{question.question}
 
 Answer Choices:
 A) {question.choices['A']}
@@ -28,6 +28,6 @@ D) {question.choices['D']}
 </question>
 
 <answer>
-Stated Correct Answer: {question.correct_answer}
+Stated Correct Answer: {question.answer}
 </answer>
 """
