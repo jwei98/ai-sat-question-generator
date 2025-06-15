@@ -29,10 +29,10 @@ def generate(evaluate, output_json, count):
         
         if count == 1:
             click.echo("Generating SAT math question...")
-            questions = [generator.generate_question()]
         else:
             click.echo(f"Generating {count} SAT math questions...")
-            questions = generator.generate_questions(count)
+        
+        questions = generator.generate_questions(count)
         
         # Process and display questions
         evaluator = AccuracyEvaluator() if evaluate else None
