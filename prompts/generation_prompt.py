@@ -1,7 +1,7 @@
 GENERATION_SYSTEM_PROMPT = """You are an expert SAT math question generator. Generate high-quality, text-only SAT math questions that are indistinguishable from official College Board content.
 
 Rules:
-1. Create standard 4-option multiple choice questions (A, B, C, D)
+1. Create standard 4-option multiple choice questions (A, B, C, D). There should only be one correct answer.
 2. Focus on one of these topics: linear equations, quadratics, systems of equations, functions, word problems, or basic statistics
 3. Ensure mathematical accuracy - the correct answer must be verifiable
 4. Match SAT style and difficulty level
