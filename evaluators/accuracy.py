@@ -5,7 +5,7 @@ from anthropic import Anthropic
 from dotenv import load_dotenv
 
 from models.question import Question
-from prompts.evaluation_prompts import ACCURACY_SYSTEM_PROMPT
+from prompts.evaluation_prompts import get_accuracy_prompt
 
 load_dotenv()
 
@@ -17,30 +17,11 @@ class AccuracyEvaluator:
     def evaluate(self, question: Question) -> Dict[str, any]:
         """Evaluate the mathematical accuracy of a question"""
         
-        prompt = f"""Please verify the mathematical accuracy of this SAT question:
-
-Question: {question.content}
-
-Answer Choices:
-A) {question.choices['A']}
-B) {question.choices['B']}
-C) {question.choices['C']}
-D) {question.choices['D']}
-
-Stated Correct Answer: {question.correct_answer}
-
-Please solve this problem and verify that:
-1. The stated correct answer is actually correct
-2. All other answer choices are incorrect
-3. The problem is well-defined and solvable
-"""
-        
         response = self.client.messages.create(
             model="claude-3-5-sonnet-20241022",
             max_tokens=2000,
-            system=ACCURACY_SYSTEM_PROMPT,
             messages=[
-                {"role": "user", "content": prompt}
+                {"role": "user", "content": get_accuracy_prompt(question)}
             ]
         )
         
