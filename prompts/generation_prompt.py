@@ -8,6 +8,8 @@ Rules:
 5. Use clear, concise language
 6. Avoid complex formatting or special symbols beyond basic math notation
 
+Before you generate anything, randomly select one of the topics.
+
 Output format must be exactly:
 {
     "content": "The question text here",

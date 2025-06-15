@@ -17,52 +17,71 @@ def cli():
 
 
 @cli.command()
-@click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question')
+@click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
 @click.option('--json', 'output_json', is_flag=True, help='Output in JSON format')
-def generate(evaluate, output_json):
-    """Generate a new SAT math question"""
+@click.option('--count', '-n', default=1, help='Number of questions to generate')
+def generate(evaluate, output_json, count):
+    """Generate SAT math question(s)"""
     
     try:
-        # Generate question
+        # Generate question(s)
         generator = QuestionGenerator()
-        click.echo("Generating SAT math question...")
-        question = generator.generate_question()
         
-        # Display question
-        if output_json:
-            output = {
-                "id": question.id,
-                "content": question.content,
-                "choices": question.choices,
-                "correct_answer": question.correct_answer
-            }
+        if count == 1:
+            click.echo("Generating SAT math question...")
+            questions = [generator.generate_question()]
         else:
-            click.echo("\n" + "="*50)
-            click.echo("Generated Question:")
-            click.echo("="*50)
-            click.echo(question.format_for_display())
-            click.echo(f"\nCorrect Answer: {question.correct_answer}")
-            click.echo("="*50)
+            click.echo(f"Generating {count} SAT math questions...")
+            questions = generator.generate_questions(count)
         
-        # Evaluate if requested
-        if evaluate:
-            click.echo("\nEvaluating accuracy...")
-            evaluator = AccuracyEvaluator()
-            result = evaluator.evaluate(question)
+        # Process and display questions
+        evaluator = AccuracyEvaluator() if evaluate else None
+        results = []
+        
+        for i, question in enumerate(questions, 1):
+            if output_json:
+                result = {
+                    "id": question.id,
+                    "content": question.content,
+                    "choices": question.choices,
+                    "correct_answer": question.correct_answer
+                }
+            else:
+                if count > 1:
+                    click.echo(f"\n{'='*50}")
+                    click.echo(f"Question {i}/{count}:")
+                    click.echo("="*50)
+                else:
+                    click.echo("\n" + "="*50)
+                    click.echo("Generated Question:")
+                    click.echo("="*50)
+                click.echo(question.format_for_display())
+                click.echo(f"\nCorrect Answer: {question.correct_answer}")
+                click.echo("="*50)
+            
+            # Evaluate if requested
+            if evaluate:
+                if not output_json:
+                    click.echo("\nEvaluating accuracy...")
+                evaluation = evaluator.evaluate(question)
+                
+                if output_json:
+                    result["evaluation"] = evaluation
+                else:
+                    click.echo("\n" + "-"*50)
+                    click.echo("Accuracy Evaluation:")
+                    click.echo("-"*50)
+                    click.echo(f"Mathematically Correct: {'✓' if evaluation['correct'] else '✗'}")
+                    click.echo(f"Explanation: {evaluation['explanation']}")
+                    if evaluation.get('solution_steps'):
+                        click.echo(f"\nSolution Steps:\n{evaluation['solution_steps']}")
+                    click.echo("-"*50)
             
             if output_json:
-                output["evaluation"] = result
-            else:
-                click.echo("\n" + "-"*50)
-                click.echo("Accuracy Evaluation:")
-                click.echo("-"*50)
-                click.echo(f"Mathematically Correct: {'' if result['correct'] else ''}")
-                click.echo(f"Explanation: {result['explanation']}")
-                if result.get('solution_steps'):
-                    click.echo(f"\nSolution Steps:\n{result['solution_steps']}")
-                click.echo("-"*50)
+                results.append(result)
         
         if output_json:
+            output = {"questions": results} if count > 1 else results[0]
             click.echo(json.dumps(output, indent=2))
             
     except Exception as e:
@@ -95,7 +114,7 @@ def evaluate_file(question_json):
         click.echo("\n" + "-"*50)
         click.echo("Accuracy Evaluation:")
         click.echo("-"*50)
-        click.echo(f"Mathematically Correct: {'' if result['correct'] else ''}")
+        click.echo(f"Mathematically Correct: {'✓' if result['correct'] else '✗'}")
         click.echo(f"Explanation: {result['explanation']}")
         if result.get('solution_steps'):
             click.echo(f"\nSolution Steps:\n{result['solution_steps']}")
@@ -120,12 +139,34 @@ def batch(count, output):
     
     click.echo(f"Generating {count} SAT math questions...\n")
     
-    with click.progressbar(range(count), label='Generating questions') as bar:
-        for i in bar:
+    # Use the new efficient multi-question generation
+    if count <= 10:
+        # Generate all at once for small batches
+        with click.progressbar(length=1, label='Generating questions') as bar:
             try:
-                # Generate question
-                question = generator.generate_question()
-                
+                questions = generator.generate_questions(count)
+                bar.update(1)
+            except Exception as e:
+                click.echo(f"\nError generating questions: {e}", err=True)
+                questions = []
+    else:
+        # For larger batches, generate in chunks of 10
+        questions = []
+        chunks = (count + 9) // 10  # Round up division
+        with click.progressbar(range(chunks), label='Generating questions') as bar:
+            for chunk in bar:
+                remaining = count - len(questions)
+                chunk_size = min(10, remaining)
+                try:
+                    chunk_questions = generator.generate_questions(chunk_size)
+                    questions.extend(chunk_questions)
+                except Exception as e:
+                    click.echo(f"\nError generating chunk {chunk+1}: {e}", err=True)
+    
+    # Evaluate questions
+    with click.progressbar(questions, label='Evaluating accuracy') as bar:
+        for question in bar:
+            try:
                 # Evaluate accuracy
                 evaluation = evaluator.evaluate(question)
                 
@@ -143,21 +184,21 @@ def batch(count, output):
                 results.append(result)
                 
             except Exception as e:
-                click.echo(f"\nError generating question {i+1}: {e}", err=True)
+                click.echo(f"\nError evaluating question: {e}", err=True)
     
     # Display summary
     click.echo(f"\n\nGeneration Complete!")
-    click.echo(f"Total Questions: {count}")
-    click.echo(f"Mathematically Accurate: {accurate_count} ({accurate_count/count*100:.1f}%)")
+    click.echo(f"Total Questions: {len(results)}")
+    click.echo(f"Mathematically Accurate: {accurate_count} ({accurate_count/len(results)*100:.1f}%)")
     
     # Save to file if requested
     if output:
         json.dump({
             "questions": results,
             "summary": {
-                "total": count,
+                "total": len(results),
                 "accurate": accurate_count,
-                "accuracy_rate": accurate_count/count
+                "accuracy_rate": accurate_count/len(results) if results else 0
             }
         }, output, indent=2)
         click.echo(f"\nResults saved to: {output.name}")
