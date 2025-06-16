@@ -1,0 +1,222 @@
+[
+  {
+    "id": "ff5fd26c-74fa-41d5-b6ce-af0d6f4ae531",
+    "question": "Line p passes through the points (2, 5) and (6, 13). Which of the following is the equation of line p?",
+    "choices": {
+      "A": "y = 2x + 1",
+      "B": "y = 2x + 3",
+      "C": "y = 2x - 1",
+      "D": "y = 2x + 0"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "533fefcf-b0f4-4b55-913a-b671f3fc318a",
+    "question": "If 7x - 3 = 4x + 12, what is the value of x?",
+    "choices": {
+      "A": "3",
+      "B": "5",
+      "C": "7",
+      "D": "-5"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "4dc01a1f-e0ad-43aa-a10f-293a3a1a144f",
+    "question": "Line m has equation y = -2x + 7. Line n is perpendicular to line m in the xy-plane. What is the slope of line n?",
+    "choices": {
+      "A": "2",
+      "B": "-2",
+      "C": "1/2",
+      "D": "-1/2"
+    },
+    "answer": "C"
+  },
+  {
+    "id": "cbba81ed-c1c8-4ea4-a80e-501624d7fc81",
+    "question": "A swimming pool is being filled with water. Initially, the pool contains 400 gallons of water. Water flows into the pool at a constant rate of 25 gallons per minute. Which of the following functions represents the amount of water W, in gallons, in the pool after t minutes?",
+    "choices": {
+      "A": "W = 25t - 400",
+      "B": "W = 400t + 25",
+      "C": "W = 25t + 400",
+      "D": "W = 400 - 25t"
+    },
+    "answer": "C"
+  },
+  {
+    "id": "e643ffb4-a700-4cd2-8302-c7e9d6fdebac",
+    "question": "The solution to the inequality 3x - 7 \u2264 8 is",
+    "choices": {
+      "A": "x \u2264 5",
+      "B": "x \u2264 15",
+      "C": "x \u2265 5",
+      "D": "x \u2265 15"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "db450c7d-cb9a-49b8-b978-33596841632e",
+    "question": "A store sells apples for $0.75 each and oranges for $0.95 each. If a customer buys a total of 20 pieces of fruit and spends exactly $16.50, how many apples did the customer buy?",
+    "choices": {
+      "A": "10",
+      "B": "12",
+      "C": "14",
+      "D": "16"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "b0f5a476-fcf7-4576-9613-d0c60b46272d",
+    "question": "The temperature T (in degrees Fahrenheit) of a cup of coffee t minutes after it is poured can be modeled by the linear function T = 190 - 2.5t. According to this model, after how many minutes will the coffee's temperature be 165 degrees Fahrenheit?",
+    "choices": {
+      "A": "6",
+      "B": "8",
+      "C": "10",
+      "D": "12"
+    },
+    "answer": "C"
+  },
+  {
+    "id": "06f8bcb9-26eb-414f-9c5d-2e530c6e5e90",
+    "question": "Line k has a slope of 3 and passes through the point (2, -1). Which of the following is the equation of line k?",
+    "choices": {
+      "A": "y = 3x - 7",
+      "B": "y = 3x - 8",
+      "C": "y = 3x + 5",
+      "D": "y = 3x - 5"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "08e94d2f-0a26-49e8-a7fc-77ee42cbfe94",
+    "question": "Which of the following values of x satisfies the system of equations below?\n2x + 3y = 13\ny = 3",
+    "choices": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "4d91e310-4292-4ff9-8bb7-c2ab29993fa7",
+    "question": "A company sells two types of products, standard and premium. The company must produce at least 50 items total, and it can produce at most 100 standard products and at most 60 premium products. If x represents the number of standard products and y represents the number of premium products, which inequality correctly describes these constraints?",
+    "choices": {
+      "A": "x + y \u2265 50, x \u2264 100, y \u2264 60",
+      "B": "x + y \u2264 50, x \u2264 100, y \u2264 60",
+      "C": "x + y \u2264 50, x \u2265 100, y \u2265 60",
+      "D": "x + y \u2265 50, x \u2265 100, y \u2265 60"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "b5354b02-93a9-4a70-a759-72e38e8f26f2",
+    "question": "Line m has the equation y = 4x - 7. Line n is perpendicular to line m in the xy-plane. What is the slope of line n?",
+    "choices": {
+      "A": "-4",
+      "B": "-1/4",
+      "C": "1/4",
+      "D": "4"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "7423dd85-460c-4b6f-b702-863ab011853c",
+    "question": "If 3(2x - 5) - 4 = 5x + 7, what is the value of x?",
+    "choices": {
+      "A": "-2",
+      "B": "2",
+      "C": "3",
+      "D": "5"
+    },
+    "answer": "C"
+  },
+  {
+    "id": "b6c3fb51-ab15-4db7-bf2c-2bf4993954b4",
+    "question": "A rental car company charges a daily fee of $45 plus $0.25 per mile driven. If C represents the total cost in dollars and m represents the number of miles driven, which of the following equations represents this situation for a one-day rental?",
+    "choices": {
+      "A": "C = 0.25m + 45",
+      "B": "C = 45m + 0.25",
+      "C": "C = m + 45.25",
+      "D": "C = 45.25m"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "d3338a65-c52a-457f-bcb6-8564caf257d5",
+    "question": "The sum of two numbers is 24. If one number is 4 more than twice the other number, what is the value of the smaller number?",
+    "choices": {
+      "A": "4",
+      "B": "6",
+      "C": "8",
+      "D": "10"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "616e17c1-da1b-457f-8d70-ed69502ae78d",
+    "question": "A student needs to score at least 280 points total on 4 tests to earn a B in a class. If the student scored 68, 72, and 75 on the first three tests, which inequality represents the minimum score, s, needed on the fourth test to earn a B?",
+    "choices": {
+      "A": "s \u2265 65",
+      "B": "s \u2265 73",
+      "C": "s \u2265 65",
+      "D": "s \u2265 280"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "8307763f-dbed-4fe1-a817-48d179051ec6",
+    "question": "The height h, in meters, of a hot air balloon t minutes after takeoff is given by the function h(t) = 12t + 2. What is the height of the balloon 5 minutes after takeoff?",
+    "choices": {
+      "A": "60 meters",
+      "B": "62 meters",
+      "C": "72 meters",
+      "D": "75 meters"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "640d45d1-3c81-40b5-8dcd-843d21824595",
+    "question": "2x + 3y = 12\n4x - 5y = 8\nWhat is the solution (x, y) to the system of equations above?",
+    "choices": {
+      "A": "(2, 2)",
+      "B": "(3, 2)",
+      "C": "(4, 0)",
+      "D": "(4, 4/3)"
+    },
+    "answer": "B"
+  },
+  {
+    "id": "310e6948-60b8-4d39-8bcd-2c583ec85bea",
+    "question": "A manufacturing company produces x standard models and y deluxe models daily. The standard model requires 3 hours of labor, and the deluxe model requires 5 hours of labor. If the company has at most 40 hours of labor available per day, which inequality represents this constraint?",
+    "choices": {
+      "A": "3x + 5y \u2264 40",
+      "B": "3x + 5y \u2265 40",
+      "C": "5x + 3y \u2264 40",
+      "D": "5x + 3y \u2265 40"
+    },
+    "answer": "A"
+  },
+  {
+    "id": "8c2c6494-4caf-4501-8ed9-5a7b8f86ccfb",
+    "question": "If f(x) = 3x - 7, what value of x satisfies f(x) = 14?",
+    "choices": {
+      "A": "3",
+      "B": "5",
+      "C": "7",
+      "D": "9"
+    },
+    "answer": "C"
+  },
+  {
+    "id": "a4908dd9-a84a-4615-9298-f28d1cd08be3",
+    "question": "A boat travels downstream at a speed of (r + 3) miles per hour, where r is the speed of the current. The same boat travels upstream at a speed of (r - 3) miles per hour. If the boat travels 36 miles downstream in the same amount of time it takes to travel 12 miles upstream, what is the speed of the current in miles per hour?",
+    "choices": {
+      "A": "3",
+      "B": "6",
+      "C": "9",
+      "D": "12"
+    },
+    "answer": "B"
+  }
+]
