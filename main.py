@@ -29,10 +29,7 @@ def generate(evaluate, output_json, count, output, quiet):
         # Generate question(s)
         generator = QuestionGenerator()
         
-        if count == 1:
-            if not quiet:
-                click.echo("Generating SAT math question...")
-        else:
+        if not quiet:
             click.echo(f"Generating {count} SAT math questions...")
         
         # Generate questions efficiently in chunks if needed
