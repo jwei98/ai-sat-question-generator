@@ -18,7 +18,7 @@ def get_pdf_files(directory: str) -> List[Path]:
     return pdf_files
 
 
-def extract_questions_from_pdf(client: Anthropic, pdf_path: Path) -> List[Dict]:
+def extract_questions_from_pdf(client: Anthropic, pdf_path: Path, model: str) -> List[Dict]:
     """Extract SAT questions from a PDF using Anthropic's API"""
     
     # Read PDF file
@@ -32,7 +32,7 @@ def extract_questions_from_pdf(client: Anthropic, pdf_path: Path) -> List[Dict]:
         # Use PDF analysis (note: this requires the file to be uploaded to Anthropic)
         # For now, we'll simulate by asking to analyze the PDF content
         response = client.messages.create(
-            model="claude-3-7-sonnet-latest",
+            model=model,
             max_tokens=4000,
             messages=[
                 {

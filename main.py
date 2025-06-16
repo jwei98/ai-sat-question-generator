@@ -17,6 +17,7 @@ from utils.display import (
     display_summary,
     create_file_output
 )
+from config import get_default_model
 
 load_dotenv()
 
@@ -39,10 +40,15 @@ def evaluate():
 @click.option('--output', '-o', type=click.Path(), default='data/real_questions.json',
               help='Output JSON file')
 @click.option('--limit', '-l', type=int, help='Limit number of PDFs to process')
-def extract(input, output, limit):
+@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+def extract(input, output, limit, model):
     """Extract SAT questions from PDF files"""
     
     try:
+        # Determine model to use
+        model_name = model or get_default_model()
+        click.echo(f"Using model: {model_name}")
+        
         # Initialize Anthropic client
         client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
         
@@ -60,7 +66,7 @@ def extract(input, output, limit):
         # Process each PDF
         for pdf_file in pdf_files:
             click.echo(f"\nProcessing: {pdf_file}")
-            questions = extract_questions_from_pdf(client, pdf_file)
+            questions = extract_questions_from_pdf(client, pdf_file, model_name)
             click.echo(f"Extracted {len(questions)} questions")
             all_questions.extend(questions)
         
@@ -84,12 +90,18 @@ def extract(input, output, limit):
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Only show summary, suppress individual question display')
-def generate(evaluate, count, output, quiet):
+@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+def generate(evaluate, count, output, quiet, model):
     """Generate SAT math question(s)"""
     
     try:
+        # Determine model to use
+        model_name = model or get_default_model()
+        if not quiet:
+            click.echo(f"Using model: {model_name}")
+        
         # Generate question(s)
-        generator = QuestionGenerator()
+        generator = QuestionGenerator(model=model_name)
         
         if not quiet:
             click.echo(f"Generating {count} SAT math questions...")
@@ -98,7 +110,7 @@ def generate(evaluate, count, output, quiet):
         questions = generator.generate_questions(count)
         
         # Process and display questions
-        evaluator = AccuracyEvaluator() if evaluate else None
+        evaluator = AccuracyEvaluator(model=model_name) if evaluate else None
         results = []
         accurate_count = 0
         
@@ -152,10 +164,16 @@ def generate(evaluate, count, output, quiet):
 @click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with questions')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Show summary only')
-def accuracy(count, input, output, quiet):
+@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+def accuracy(count, input, output, quiet, model):
     """Evaluate mathematical accuracy of questions"""
     
     try:
+        # Determine model to use
+        model_name = model or get_default_model()
+        if not quiet:
+            click.echo(f"Using model: {model_name}")
+        
         # Load or generate questions
         if input:
             click.echo(f"Loading questions from {input}...")
@@ -180,12 +198,12 @@ def accuracy(count, input, output, quiet):
                 ))
         else:
             click.echo(f"Generating {count} SAT math questions...")
-            generator = QuestionGenerator()
+            generator = QuestionGenerator(model=model_name)
             questions = generator.generate_questions(count)
         
         # Evaluate questions
         click.echo("Evaluating accuracy...")
-        evaluator = AccuracyEvaluator()
+        evaluator = AccuracyEvaluator(model=model_name)
         results = []
         correct_count = 0
         
@@ -239,10 +257,15 @@ def accuracy(count, input, output, quiet):
 @click.option('--real-questions', '-r', type=click.Path(exists=True), default='data/real_questions.json', help='Real questions JSON file')
 @click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with generated questions (optional)')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
-def authenticity(count, real_questions, input, output):
+@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+def authenticity(count, real_questions, input, output, model):
     """Test how well generated questions match real SAT questions"""
     
     try:
+        # Determine model to use
+        model_name = model or get_default_model()
+        click.echo(f"Using model: {model_name}")
+        
         # Load real questions
         click.echo(f"Loading real questions from {real_questions}...")
         with open(real_questions, 'r') as f:
@@ -281,12 +304,12 @@ def authenticity(count, real_questions, input, output):
                 count = len(generated_qs)
         else:
             click.echo(f"Generating {count} SAT math questions...")
-            generator = QuestionGenerator()
+            generator = QuestionGenerator(model=model_name)
             generated_qs = generator.generate_questions(count)
         
         # Run authenticity evaluation
         click.echo("\nRunning authenticity evaluation...")
-        evaluator = AuthenticityEvaluator()
+        evaluator = AuthenticityEvaluator(model=model_name)
         results = evaluator.evaluate(real_qs[:count], generated_qs)
         
         # Display results

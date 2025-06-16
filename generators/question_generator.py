@@ -11,8 +11,9 @@ load_dotenv()
 
 
 class QuestionGenerator:
-    def __init__(self, api_key: Optional[str] = None):
+    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self.client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+        self.model = model or "claude-3-7-sonnet-latest"
         
     def generate_questions(self, count: int = 1) -> List[Question]:
         """Generate multiple SAT math questions, handling batching internally for large counts"""
@@ -44,7 +45,7 @@ class QuestionGenerator:
         prompt = get_generate_questions_prompt(count)
         
         response = self.client.messages.create(
-            model="claude-3-5-sonnet-20241022",
+            model=self.model,
             max_tokens=4000,  # Increased for multiple questions
             messages=[
                 {"role": "user", "content": prompt}
