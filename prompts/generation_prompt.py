@@ -62,8 +62,8 @@ The questions should fall in one of the following topics:
 Follow this process:
 1. Randomly select one of the topics
 2. Generate a question that is related to the topic. It should only contain numbers and basic arithmetic operations.
-3. Generate the correct answer choice
-3. Generate 3 incorrect answer choices
+3. Generate a correct answer choice. Explain why it is correct.
+4. Generate 3 incorrect answer choices. For each incorrect answer choice, explain why it is incorrect.
 5. Output the question and answer choices in the following JSON array format:
 <format>
 [
