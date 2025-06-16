@@ -34,6 +34,52 @@ def evaluate():
 
 
 @cli.command()
+@click.option('--input', '-i', type=click.Path(exists=True), default='data/Algebra',
+              help='Input directory containing PDF files')
+@click.option('--output', '-o', type=click.Path(), default='data/real_questions.json',
+              help='Output JSON file')
+@click.option('--limit', '-l', type=int, help='Limit number of PDFs to process')
+def extract(input, output, limit):
+    """Extract SAT questions from PDF files"""
+    
+    try:
+        # Initialize Anthropic client
+        client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        
+        # Get all PDF files
+        pdf_files = get_pdf_files(input)
+        
+        click.echo(f"Found {len(pdf_files)} PDF files in {input}")
+        
+        if limit:
+            pdf_files = pdf_files[:limit]
+            click.echo(f"Processing first {limit} files")
+        
+        all_questions = []
+        
+        # Process each PDF
+        for pdf_file in pdf_files:
+            click.echo(f"\nProcessing: {pdf_file}")
+            questions = extract_questions_from_pdf(client, pdf_file)
+            click.echo(f"Extracted {len(questions)} questions")
+            all_questions.extend(questions)
+        
+        # Save to JSON
+        output_dir = os.path.dirname(output)
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+        
+        with open(output, 'w', encoding='utf-8') as f:
+            json.dump(all_questions, f, indent=2, ensure_ascii=False)
+        
+        click.echo(f"\nSaved {len(all_questions)} questions to {output}")
+        
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        raise click.Abort()
+
+
+@cli.command()
 @click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
@@ -277,52 +323,6 @@ def authenticity(count, real_questions, input, output):
         click.echo(f"Error: Real questions file not found at {real_questions}", err=True)
         click.echo("Please run 'python main.py extract' first to generate the real questions dataset.", err=True)
         raise click.Abort()
-    except Exception as e:
-        click.echo(f"Error: {e}", err=True)
-        raise click.Abort()
-
-
-@cli.command()
-@click.option('--input', '-i', type=click.Path(exists=True), default='data/Algebra',
-              help='Input directory containing PDF files')
-@click.option('--output', '-o', type=click.Path(), default='data/real_questions.json',
-              help='Output JSON file')
-@click.option('--limit', '-l', type=int, help='Limit number of PDFs to process')
-def extract(input, output, limit):
-    """Extract SAT questions from PDF files"""
-    
-    try:
-        # Initialize Anthropic client
-        client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-        
-        # Get all PDF files
-        pdf_files = get_pdf_files(input)
-        
-        click.echo(f"Found {len(pdf_files)} PDF files in {input}")
-        
-        if limit:
-            pdf_files = pdf_files[:limit]
-            click.echo(f"Processing first {limit} files")
-        
-        all_questions = []
-        
-        # Process each PDF
-        for pdf_file in pdf_files:
-            click.echo(f"\nProcessing: {pdf_file}")
-            questions = extract_questions_from_pdf(client, pdf_file)
-            click.echo(f"Extracted {len(questions)} questions")
-            all_questions.extend(questions)
-        
-        # Save to JSON
-        output_dir = os.path.dirname(output)
-        if output_dir:
-            os.makedirs(output_dir, exist_ok=True)
-        
-        with open(output, 'w', encoding='utf-8') as f:
-            json.dump(all_questions, f, indent=2, ensure_ascii=False)
-        
-        click.echo(f"\nSaved {len(all_questions)} questions to {output}")
-        
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
         raise click.Abort()
