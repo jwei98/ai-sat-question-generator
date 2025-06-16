@@ -250,8 +250,8 @@ def authenticity(input, real_questions, output, model):
         generated_qs = []
         for q in gen_data:
             # Handle different field names (question vs content, answer vs correct_answer)
-            question_text = q.get('question', q.get('content', ''))
-            answer = q.get('answer', q.get('correct_answer', ''))
+            question_text = q.get('question')
+            answer = q.get('answer')
             generated_qs.append(Question(
                 question=question_text,
                 choices=q['choices'],
