@@ -1,102 +1,1782 @@
 [
   {
+    "id": "d1b66ae6",
+    "question": "If (x, y) satisfies the system of equations -x + y = -3.5 and x + 3y = 9.5, what is the value of y?",
+    "choices": {
+      "A": "-2.5",
+      "B": "1",
+      "C": "2",
+      "D": "4.5"
+    }
+  },
+  {
+    "id": "70feb725",
     "question": "During a month, Morgan ran r miles at 5 miles per hour and biked b miles at 10 miles per hour. She ran and biked a total of 200 miles that month, and she biked for twice as many hours as she ran. What is the total number of miles that Morgan biked during the month?",
     "choices": {
       "A": "80",
       "B": "100",
       "C": "120",
       "D": "160"
-    },
-    "answer": "D"
+    }
   },
   {
+    "id": "e1248a5c",
+    "question": "In the system of equations below, a and c are constants. 1/2 x + 1/3 y = 1/6 and ax + y = c. If the system of equations has an infinite number of solutions (x, y), what is the value of a?",
+    "choices": {
+      "A": "-1/2",
+      "B": "0",
+      "C": "1/2",
+      "D": "3/2"
+    }
+  },
+  {
+    "id": "52cb8ea4",
+    "question": "If (x, y) is the solution to the system of equations 7x - 5y = 4 and 4x - 8y = 9, what is the value of 3x + 3y?",
+    "choices": {
+      "A": "-13",
+      "B": "-5",
+      "C": "5",
+      "D": "13"
+    }
+  },
+  {
+    "id": "d7bf55e1",
+    "question": "A movie theater sells two types of tickets, adult tickets for $12 and child tickets for $8. If the theater sold 30 tickets for a total of $300, how much, in dollars, was spent on adult tickets? (Disregard the $ sign when gridding your answer.)",
+    "choices": {
+      "A": "120",
+      "B": "180",
+      "C": "240",
+      "D": "300"
+    }
+  },
+  {
+    "id": "f718c9cf",
+    "question": "The solution to the given system of equations 5x + 14y = 45 and 10x + 7y = 27 is (x, y). What is the value of xy?",
+    "choices": {
+      "A": "-6",
+      "B": "0",
+      "C": "6",
+      "D": "9"
+    }
+  },
+  {
+    "id": "466b87e3",
+    "question": "In the system of equations above, c is a constant. y = 1/2 x + 8 and y = cx + 10. If the system has no solution, what is the value of c?",
+    "choices": {
+      "A": "-1/2",
+      "B": "0",
+      "C": "1/2",
+      "D": "2"
+    }
+  },
+  {
+    "id": "e2e3942f",
+    "question": "In the system of equations above, a is a constant. y = 2x + 1 and y = ax - 8. If the system of equations has no solution, what is the value of a?",
+    "choices": {
+      "A": "-1/2",
+      "B": "0",
+      "C": "1",
+      "D": "2"
+    }
+  },
+  {
+    "id": "1e11190a",
+    "question": "Store A sells raspberries for $5.50 per pint and blackberries for $3.00 per pint. Store B sells raspberries for $6.50 per pint and blackberries for $8.00 per pint. A certain purchase of raspberries and blackberries would cost $37.00 at Store A or $66.00 at Store B. How many pints of blackberries are in this purchase?",
+    "choices": {
+      "A": "4",
+      "B": "5",
+      "C": "8",
+      "D": "12"
+    }
+  },
+  {
+    "id": "567ac7ab",
     "question": "One of the two equations in a linear system is 2x + 6y = 10. The system has no solution. Which of the following could be the other equation in the system?",
     "choices": {
       "A": "x + 3y = 5",
       "B": "x + 3y = -20",
       "C": "6x - 2y = 0",
       "D": "6x + 2y = 10"
-    },
-    "answer": "D"
+    }
   },
   {
-    "question": "In the given system of equations, a and b are constants. The graphs of these equations in the xy-plane intersect at the point (4, y). What is the value of a? \nax + by = 72\n6x + 2by = 56",
+    "id": "73b3b7d8",
+    "question": "The solution to the given system of equations 5y = 10x + 11 and -5y = 5x - 21 is (x, y). What is the value of 30x?",
+    "choices": {
+      "A": "-30",
+      "B": "0",
+      "C": "15",
+      "D": "30"
+    }
+  },
+  {
+    "id": "a71b1bc1",
+    "question": "A piece of wire with a length of 32 inches is cut into two parts. One part has a length of x inches, and the other part has a length of y inches. The value of x is 4 more than 3 times the value of y. What is the value of x?",
+    "choices": {
+      "A": "8",
+      "B": "20",
+      "C": "24.5",
+      "D": "28"
+    }
+  },
+  {
+    "id": "b5f62071",
+    "question": "In the given system of equations, r is a constant. 48x - 64y = 48y + 24 and ry = 1/8 - 12x. If the system has no solution, what is the value of r?",
+    "choices": {
+      "A": "-6",
+      "B": "-3",
+      "C": "3",
+      "D": "6"
+    }
+  },
+  {
+    "id": "1b1deebe",
+    "question": "In the given system of equations, a and b are constants. ax + by = 72 and 6x + 2by = 56. The graphs of these equations in the xy-plane intersect at the point (4, y). What is the value of a?",
     "choices": {
       "A": "3",
       "B": "4",
       "C": "6",
       "D": "14"
-    },
-    "answer": "C"
+    }
   },
   {
+    "id": "cb8f449f",
+    "question": "The system of equations 1/2 y = 4 and x - 1/2 y = 2 has solution (x, y). What is the value of x?",
+    "choices": {
+      "A": "3",
+      "B": "7/2",
+      "C": "4",
+      "D": "6"
+    }
+  },
+  {
+    "id": "71189542",
     "question": "A group of 202 people went on an overnight camping trip, taking 60 tents with them. Some of the tents held 2 people each, and the rest held 4 people each. Assuming all the tents were filled to capacity and every person got to sleep in a tent, exactly how many of the tents were 2-person tents?",
     "choices": {
       "A": "30",
       "B": "20",
       "C": "19",
       "D": "18"
-    },
-    "answer": "C"
+    }
   },
   {
+    "id": "6e6a3241",
+    "question": "x + 5y = 5\n2x - y = -4\nWhich of the following graphs in the xy-plane could be used to solve the system of equations above?",
+    "choices": {
+      "A": "[Graph A]",
+      "B": "[Graph B]",
+      "C": "[Graph C]",
+      "D": "[Graph D]"
+    }
+  },
+  {
+    "id": "f5929f7a",
+    "question": "y = -1/2x\ny = 1/2x\nThe solution to the given system of equations is (x, y). What is the value of x?",
+    "choices": {
+      "A": "-9",
+      "B": "-7",
+      "C": "0",
+      "D": "2"
+    }
+  },
+  {
+    "id": "ed92fb68",
+    "question": "4x + 5y = 100\n5x + 4y = 62\nIf the system of equations above has solution (x, y), what is the value of x + y?",
+    "choices": {
+      "A": "0",
+      "B": "9",
+      "C": "18",
+      "D": "38"
+    }
+  },
+  {
+    "id": "19fdf387",
+    "question": "In the xy-plane, the graph of y = x + 3 intersects the graph of y = 2x - 6 at the point (a, b). What is the value of a?",
+    "choices": {
+      "A": "3",
+      "B": "6",
+      "C": "9",
+      "D": "12"
+    }
+  },
+  {
+    "id": "c5082ce3",
+    "question": "The score on a trivia game is obtained by subtracting the number of incorrect answers from twice the number of correct answers. If a player answered 40 questions and obtained a score of 50, how many questions did the player answer correctly?",
+    "choices": {
+      "A": "15",
+      "B": "20",
+      "C": "30",
+      "D": "35"
+    }
+  },
+  {
+    "id": "092ad67d",
+    "question": "x + 2y = 6\nx - 2y = 4\nThe solution to the given system of equations is (x, y). What is the value of x?",
+    "choices": {
+      "A": "2.5",
+      "B": "5",
+      "C": "6",
+      "D": "10"
+    }
+  },
+  {
+    "id": "e77a76ce",
     "question": "Which of the following systems of linear equations has no solution?",
     "choices": {
       "A": "y = 6x + 3\ny = 6x + 9",
       "B": "y = 10\ny = 10x + 10",
       "C": "y = 14x + 14\ny = 10x + 14",
       "D": "x = 3\ny = 10"
-    },
-    "answer": "A"
+    }
   },
   {
-    "question": "In the solution to the system of equations\ny = 2x - 3\n3y = 5x\nwhat is the value of y?",
+    "id": "5e422ff9",
+    "question": "y = 2x - 3\n3y = 5x\nIn the solution to the system of equations above, what is the value of y?",
     "choices": {
       "A": "-15",
       "B": "-9",
       "C": "9",
       "D": "15"
-    },
-    "answer": "A"
+    }
   },
   {
+    "id": "2704399f",
+    "question": "Which of the following systems of equations has the same solution as the system of equations graphed above?",
+    "choices": {
+      "A": "y = 0\nx = 3/2",
+      "B": "y = 3/2\nx = 0",
+      "C": "y = 0\nx = 1",
+      "D": "y = 1\nx = 0"
+    }
+  },
+  {
+    "id": "b544a348",
+    "question": "5x + 3y = 38\nx + 3y = 10\nIn the solution (x, y) to the system of equations above, what is the value of x?",
+    "choices": {
+      "A": "7",
+      "B": "4",
+      "C": "3",
+      "D": "2"
+    }
+  },
+  {
+    "id": "e53688cb",
+    "question": "x + 3y = 29\n3y = 11\nThe solution to the given system of equations is (x, y). What is the value of x?",
+    "choices": {
+      "A": "11/3",
+      "B": "18",
+      "C": "26",
+      "D": "29/3"
+    }
+  },
+  {
+    "id": "e3bbde69",
+    "question": "8x + y = 5\ny = 9x + 1\nThe solution to the given system of equations is (x, y). What is the value of x?",
+    "choices": {
+      "A": "-6",
+      "B": "4/17",
+      "C": "6/17",
+      "D": "4"
+    }
+  },
+  {
+    "id": "a0489274",
+    "question": "y = -1/5 x\ny = 1/3 x\nThe solution to the given system of equations is (x, y). What is the value of x?",
+    "choices": {
+      "A": "-5",
+      "B": "0",
+      "C": "2",
+      "D": "7"
+    }
+  },
+  {
+    "id": "b86123af",
     "question": "Hiro and Sofia purchased shirts and pants from a store. The price of each shirt purchased was the same and the price of each pair of pants purchased was the same. Hiro purchased 4 shirts and 2 pairs of pants for $86, and Sofia purchased 3 shirts and 5 pairs of pants for $166. Which of the following systems of linear equations represents the situation, if x represents the price, in dollars, of each shirt and y represents the price, in dollars, of each pair of pants?",
     "choices": {
-      "A": "4x + 2y = 86, 3x + 5y = 166",
-      "B": "4x + 3y = 86, 2x + 5y = 166",
-      "C": "4x + 2y = 166, 3x + 5y = 86",
-      "D": "4x + 3y = 166, 2x + 5y = 86"
-    },
-    "answer": "A"
+      "A": "4x + 2y = 86\n3x + 5y = 166",
+      "B": "4x + 3y = 86\n2x + 5y = 166",
+      "C": "4x + 2y = 166\n3x + 5y = 86",
+      "D": "4x + 3y = 166\n2x + 5y = 86"
+    }
   },
   {
-    "question": "A dance teacher ordered outfits for students for a dance recital. Outfits for boys cost $26, and outfits for girls cost $35. The dance teacher ordered a total of 28 outfits and spent $881. If b represents the number of outfits the dance teacher ordered for boys and g represents the number of outfits the dance teacher ordered for girls, which of the following systems of equations can be solved to find b and g?",
+    "id": "dba8d38a",
+    "question": "A petting zoo sells two types of tickets. The standard ticket, for admission only, costs $5. The premium ticket, which includes admission and food to give to the animals, costs $12. One Saturday, the petting zoo sold a total of 250 tickets and collected a total of $2,300 from ticket sales. Which of the following systems of equations can be used to find the number of standard tickets, s, and premium tickets, p, sold on that Saturday?",
     "choices": {
-      "A": "26b + 35g = 28, b + g = 881",
-      "B": "26b + 35g = 881, b + g = 28",
-      "C": "26g + 35b = 28, b + g = 881",
-      "D": "26g + 35b = 881, b + g = 28"
-    },
-    "answer": "B"
+      "A": "s + p = 250\n5s + 12p = 2,300",
+      "B": "s + p = 250\n12s + 5p = 2,300",
+      "C": "5s + 12p = 250\ns + p = 2,300",
+      "D": "12s + 5p = 250\ns + p = 2,300"
+    }
   },
   {
+    "id": "aff28230",
+    "question": "The solution to the given system of equations is (x, y). What is the value of y?\nx = 10\ny = x + 21",
+    "choices": {
+      "A": "2.1",
+      "B": "10",
+      "C": "21",
+      "D": "31"
+    }
+  },
+  {
+    "id": "8abed0fb",
+    "question": "What is the solution (x, y) to the given system of equations?\ny = 2x + 3\nx = 1",
+    "choices": {
+      "A": "(1, 2)",
+      "B": "(1, 5)",
+      "C": "(2, 3)",
+      "D": "(2, 7)"
+    }
+  },
+  {
+    "id": "ca9bb527",
+    "question": "What is the solution (x, y) to the given system of equations?\ny = 4x - 9\ny = 19",
+    "choices": {
+      "A": "(4, 19)",
+      "B": "(7, 19)",
+      "C": "(19, 4)",
+      "D": "(19, 7)"
+    }
+  },
+  {
+    "id": "ece00725",
+    "question": "Connor has c dollars and Maria has m dollars. Connor has 4 times as many dollars as Maria, and together they have a total of $25.00. Which system of equations represents this situation?",
+    "choices": {
+      "A": "c = 4m\nc + m = 25",
+      "B": "m = 4c\nc + m = 25",
+      "C": "c = 25m\nc + m = 4",
+      "D": "m = 25c\nc + m = 4"
+    }
+  },
+  {
+    "id": "0d1dca87",
+    "question": "If (x, y) is the solution to the given system of equations, what is the value of y?\n3x + y = 29\nx = 2",
+    "choices": {
+      "A": "10",
+      "B": "15",
+      "C": "23",
+      "D": "25"
+    }
+  },
+  {
+    "id": "0df106df",
     "question": "An online bookstore sells novels and magazines. Each novel sells for $4, and each magazine sells for $1. If Sadie purchased a total of 11 novels and magazines that have a combined selling price of $20, how many novels did she purchase?",
     "choices": {
       "A": "2",
       "B": "3",
       "C": "4",
       "D": "5"
-    },
-    "answer": "C"
+    }
   },
   {
+    "id": "7d89376f",
+    "question": "A discount airline sells a certain number of tickets, x, for a flight for $90 each. It sells the number of remaining tickets, y, for $250 each. For a particular flight, the airline sold 120 tickets and collected a total of $27,600 from the sale of those tickets. Which system of equations represents this relationship between x and y?",
+    "choices": {
+      "A": "x + y = 120\n90x + 250y = 27,600",
+      "B": "x + y = 120\n90x + 250y = 120(27,600)",
+      "C": "x + y = 27,600\n90x + 250y = 120(27,600)",
+      "D": "90x = 250y\n120x + 120y = 27,600"
+    }
+  },
+  {
+    "id": "17f176ec",
+    "question": "A movie theater charges $11 for each full-price ticket and $8.25 for each reduced-price ticket. For one movie showing, the theater sold a total of 214 full-price and reduced-price tickets for $2,145. Which of the following systems of equations could be used to determine the number of full-price tickets, f, and the number of reduced-price tickets, r, sold?",
+    "choices": {
+      "A": "f + r = 2,145\n11f + 8.25r = 214",
+      "B": "f + r = 214\n11f + 8.25r = 2,145",
+      "C": "f + r = 214\n8.25f + 11r = 2,145",
+      "D": "f + r = 2,145\n8.25f + 11r = 214"
+    }
+  },
+  {
+    "id": "44d65912",
+    "question": "Angela is playing a video game. In this game, players can score points only by collecting coins and stars. Each coin is worth c points, and each star is worth s points. The first time she played, Angela scored 700 points. She collected 20 coins and 10 stars. The second time she played, Angela scored 850 points. She collected 25 coins and 12 stars. Which system of equations can be used to correctly determine the values of c and s?",
+    "choices": {
+      "A": "10c + 20s = 700\n12c + 25s = 850",
+      "B": "20c + 10s = 700\n25c + 12s = 850",
+      "C": "20c + 700s = 10\n25c + 850s = 12",
+      "D": "700c + 20s = 10\n850c + 25s = 12"
+    }
+  },
+  {
+    "id": "4b76c7f1",
+    "question": "In the given system of equations, a is a constant. If the system has infinitely many solutions, what is the value of a?\n2x + 7y = 9\n8x + 28y = a",
+    "choices": {
+      "A": "4",
+      "B": "9",
+      "C": "36",
+      "D": "54"
+    }
+  },
+  {
+    "id": "939fc21b",
+    "question": "What is the solution (r, s) to the given system of equations?\ns + 7r = 27\nr = 3",
+    "choices": {
+      "A": "(6, 3)",
+      "B": "(3, 6)",
+      "C": "(3, 27)",
+      "D": "(27, 3)"
+    }
+  },
+  {
+    "id": "f5563c26",
+    "question": "The solution to the given system of equations is (x, y). What is the value of x?\ny = 4\nx = y + 6",
+    "choices": {
+      "A": "10",
+      "B": "6",
+      "C": "4",
+      "D": "2"
+    }
+  },
+  {
+    "id": "cd33b015",
+    "question": "If (x, y) is the solution to the given system of equations, what is the value of y?\nx + y = 20\n2(x + y) + 3y = 85",
+    "choices": {
+      "A": "10",
+      "B": "15",
+      "C": "60",
+      "D": "65"
+    }
+  },
+  {
+    "id": "097e10f5",
     "question": "What value of p satisfies the equation 5p + 180 = 250?",
     "choices": {
       "A": "14",
       "B": "65",
       "C": "86",
       "D": "250"
-    },
-    "answer": "A"
+    }
+  },
+  {
+    "id": "997bec28",
+    "question": "The perimeter of an isosceles triangle is 83 inches. Each of the two congruent sides of the triangle has a length of 24 inches. What is the length, in inches, of the third side?",
+    "choices": {
+      "A": "35",
+      "B": "36",
+      "C": "59",
+      "D": "72"
+    }
+  },
+  {
+    "id": "6ac23de7",
+    "question": "In the equation 4x/5 = 20, what is the value of x?",
+    "choices": {
+      "A": "25",
+      "B": "24",
+      "C": "16",
+      "D": "15"
+    }
+  },
+  {
+    "id": "7392dfc1",
+    "question": "Which of the following is equivalent to 4x + 6 = 12?",
+    "choices": {
+      "A": "2x + 4 = 6",
+      "B": "x + 3 = 3",
+      "C": "3x + 2 = 4",
+      "D": "2x + 3 = 6"
+    }
+  },
+  {
+    "id": "93954cfa",
+    "question": "One pound of grapes costs $2. At this rate, how many dollars will c pounds of grapes cost?",
+    "choices": {
+      "A": "2c",
+      "B": "2 + c",
+      "C": "2/c",
+      "D": "c/2"
+    }
+  },
+  {
+    "id": "3d04de9c",
+    "question": "A principal used a total of 25 flags that were either blue or yellow for field day. The principal used 20 blue flags. How many yellow flags were used?",
+    "choices": {
+      "A": "5",
+      "B": "20",
+      "C": "25",
+      "D": "30"
+    }
+  },
+  {
+    "id": "60f71697",
+    "question": "What value of x is the solution to the given equation 8x = 88?",
+    "choices": {
+      "A": "11",
+      "B": "80",
+      "C": "96",
+      "D": "704"
+    }
+  },
+  {
+    "id": "550b352c",
+    "question": "How many solutions exist to the equation shown above 10 = 2x + 4?",
+    "choices": {
+      "A": "None",
+      "B": "Exactly 1",
+      "C": "Exactly 3",
+      "D": "Infinitely many"
+    }
+  },
+  {
+    "id": "ed18c4f7",
+    "question": "Cathy has n CDs. Gerry has 3 more than twice the number of CDs that Cathy has. In terms of n, how many CDs does Gerry have?",
+    "choices": {
+      "A": "3n - 2",
+      "B": "3n + 2",
+      "C": "2n - 3",
+      "D": "2n + 3"
+    }
+  },
+  {
+    "id": "12255364",
+    "question": "A gym charges its members a onetime $36 enrollment fee and a membership fee of $19 per month. If there are no charges other than the enrollment fee and the membership fee, after how many months will a member have been charged a total of $188 at the gym?",
+    "choices": {
+      "A": "4",
+      "B": "5",
+      "C": "8",
+      "D": "10"
+    }
+  },
+  {
+    "id": "d9d83c02",
+    "question": "For what value of w does w - 10 = 2(w + 5)?",
+    "choices": {
+      "A": "5",
+      "B": "0",
+      "C": "-15",
+      "D": "-20"
+    }
+  },
+  {
+    "id": "7a987ae4",
+    "question": "If 2n/5 = 10, what is the value of 2n - 1?",
+    "choices": {
+      "A": "24",
+      "B": "49",
+      "C": "50",
+      "D": "99"
+    }
+  },
+  {
+    "id": "9ff10b3b",
+    "question": "If 1/2 x - 1/6 x = 1, what is the value of x?",
+    "choices": {
+      "A": "-4",
+      "B": "1/3",
+      "C": "3",
+      "D": "6"
+    }
+  },
+  {
+    "id": "4e77195b",
+    "question": "If 2 + x = 60, what is the value of 16 + 8x?",
+    "choices": {
+      "A": "240",
+      "B": "480",
+      "C": "496",
+      "D": "512"
+    }
+  },
+  {
+    "id": "4f7981a0",
+    "question": "If 3x + 2 = 8, what is the value of 9x + 6?",
+    "choices": {
+      "A": "18",
+      "B": "24",
+      "C": "26",
+      "D": "36"
+    }
+  },
+  {
+    "id": "46f68129",
+    "question": "A librarian has 43 books to distribute to a group of children. If he gives each child 2 books, he will have 7 books left over. How many children are in the group?",
+    "choices": {
+      "A": "15",
+      "B": "18",
+      "C": "25",
+      "D": "29"
+    }
+  },
+  {
+    "id": "e53870b6",
+    "question": "In the given equation 6x + k = 6x + 5, k is a constant. If the equation has infinitely many solutions, what is the value of k?",
+    "choices": {
+      "A": "0",
+      "B": "5",
+      "C": "6",
+      "D": "30"
+    }
+  },
+  {
+    "id": "70774aa4",
+    "question": "If 5x = 20, what is the value of 15x?",
+    "choices": {
+      "A": "7",
+      "B": "12",
+      "C": "23",
+      "D": "60"
+    }
+  },
+  {
+    "id": "a9c04a21",
+    "question": "What is the solution to the equation 2x + 3 = 7?",
+    "choices": {
+      "A": "1",
+      "B": "1.5",
+      "C": "2",
+      "D": "4"
+    }
+  },
+  {
+    "id": "590f2187",
+    "question": "If 3x - 27 = 24, what is the value of x - 9?",
+    "choices": {
+      "A": "1",
+      "B": "8",
+      "C": "24",
+      "D": "35"
+    }
+  },
+  {
+    "id": "59afe8db",
+    "question": "What value of x is the solution to the given equation 3x + 5(x + 4) = 76?",
+    "choices": {
+      "A": "7",
+      "B": "8",
+      "C": "56",
+      "D": "72"
+    }
+  },
+  {
+    "id": "c7d7980e",
+    "question": "What value of x is the solution to the given equation 13x = 112 - x?",
+    "choices": {
+      "A": "8",
+      "B": "8.6",
+      "C": "14",
+      "D": "112"
+    }
+  },
+  {
+    "id": "2e98b1df",
+    "question": "On the first day of a semester, a film club has 90 members. Each day after the first day of the semester, 10 new members join the film club. If no members leave the film club, how many total members will the film club have 4 days after the first day of the semester?",
+    "choices": {
+      "A": "400",
+      "B": "130",
+      "C": "94",
+      "D": "90"
+    }
+  },
+  {
+    "id": "40ba6288",
+    "question": "If 3x = 30, what is the value of 3x - 12?",
+    "choices": {
+      "A": "-2",
+      "B": "18",
+      "C": "22",
+      "D": "42"
+    }
+  },
+  {
+    "id": "2937ef4f",
+    "question": "Hector used a tool called an auger to remove corn from a storage bin at a constant rate. The bin contained 24,000 bushels of corn when Hector began to use the auger. After 5 hours of using the auger, 19,350 bushels of corn remained in the bin. If the auger continues to remove corn at this rate, what is the total number of hours Hector will have been using the auger when 12,840 bushels of corn remain in the bin?",
+    "choices": {
+      "A": "3",
+      "B": "7",
+      "C": "8",
+      "D": "12"
+    }
+  },
+  {
+    "id": "b7e6394d",
+    "question": "Alan drives an average of 100 miles each week. His car can travel an average of 25 miles per gallon of gasoline. Alan would like to reduce his weekly expenditure on gasoline by $5. Assuming gasoline costs $4 per gallon, which equation can Alan use to determine how many fewer average miles, m, he should drive each week?",
+    "choices": {
+      "A": "25/4 m = 95",
+      "B": "25/4 m = 5",
+      "C": "4/25 m = 95",
+      "D": "4/25 m = 5"
+    }
+  },
+  {
+    "id": "e6cb2402",
+    "question": "In the given equation, 3(kx + 13) = 48/17 x + 36, k is a constant. The equation has no solution. What is the value of k?",
+    "choices": {
+      "A": "16/17",
+      "B": "6/17",
+      "C": "12/17",
+      "D": "8/51"
+    }
+  },
+  {
+    "id": "ae2287e2",
+    "question": "A certain product costs a company $65 to make. The product is sold by a salesperson who earns a commission that is equal to 20% of the sales price of the product. The profit the company makes for each unit is equal to the sales price minus the combined cost of making the product and the commission. If the sales price of the product is $100, which of the following equations gives the number of units, u, of the product the company sold to make a profit of $6,840?",
+    "choices": {
+      "A": "(100(1 - 0.2) - 65)u = 6,840",
+      "B": "(100 - 65)(1 - 0.8)u = 6,840",
+      "C": "0.8(100) - 65u = 6,840",
+      "D": "(0.2(100) + 65)u = 6,840"
+    }
+  },
+  {
+    "id": "771bd0ca",
+    "question": "What value of t is the solution to the given equation? 5(t + 3) - 7(t + 3) = 38",
+    "choices": {
+      "A": "-22",
+      "B": "-16",
+      "C": "16",
+      "D": "22"
+    }
+  },
+  {
+    "id": "90095507",
+    "question": "The Townsend Realty Group invested in the five different properties listed in the table above. The table shows the amount, in dollars, the company paid for each property and the corresponding monthly rental price, in dollars, the company charges for the property at each of the five locations. Townsend Realty purchased the Glenview Street property and received a 40% discount off the original price along with an additional 20% off the discounted price for purchasing the property in cash. Which of the following best approximates the original price, in dollars, of the Glenview Street property?",
+    "choices": {
+      "A": "$350,000",
+      "B": "$291,700",
+      "C": "$233,300",
+      "D": "$175,000"
+    }
+  },
+  {
+    "id": "0cb57740",
+    "question": "Each side of a 30-sided polygon has one of three lengths. The number of sides with length 8 centimeters (cm) is 5 times the number of sides n with length 3 cm. There are 6 sides with length 4 cm. Which equation must be true for the value of n?",
+    "choices": {
+      "A": "5n + 6 = 30",
+      "B": "6n + 6 = 30",
+      "C": "8n + 3n + 4n = 30",
+      "D": "8(5n) + 3n + 4(6) = 30"
+    }
+  },
+  {
+    "id": "aee9fd2d",
+    "question": "If (x+6)/3 = (x+6)/13, the value of x + 6 is between which of the following pairs of values?",
+    "choices": {
+      "A": "-7 and -3",
+      "B": "-2 and 2",
+      "C": "2 and 7",
+      "D": "8 and 13"
+    }
+  },
+  {
+    "id": "3f8a701b",
+    "question": "The equation 9x + 5 = a(x + b), where a and b are constants, has no solutions. Which of the following must be true?\nI. a = 9\nII. b = 5\nIII. b ≠ 5/9",
+    "choices": {
+      "A": "None",
+      "B": "I only",
+      "C": "I and II only",
+      "D": "I and III only"
+    }
+  },
+  {
+    "id": "628300a9",
+    "question": "A science teacher is preparing the 5 stations of a science laboratory. Each station will have either Experiment A materials or Experiment B materials, but not both. Experiment A requires 6 teaspoons of salt, and Experiment B requires 4 teaspoons of salt. If x is the number of stations that will be set up for Experiment A and the remaining stations will be set up for Experiment B, which of the following expressions represents the total number of teaspoons of salt required?",
+    "choices": {
+      "A": "5x",
+      "B": "10x",
+      "C": "2x + 20",
+      "D": "10x + 20"
+    }
+  },
+  {
+    "id": "38bf4e04",
+    "question": "A factory makes 9-inch, 7-inch, and 4-inch concrete screws. During a certain day, the number of 9-inch concrete screws that the factory makes is 5 times the number n of 7-inch concrete screws, and the number of 4-inch concrete screws is 22. During this day, the factory makes 100 concrete screws total. Which equation represents this situation?",
+    "choices": {
+      "A": "9(5n) + 7n + 4(22) = 100",
+      "B": "9n + 7n + 4n = 100",
+      "C": "5n + 22 = 100",
+      "D": "6n + 22 = 100"
+    }
+  },
+  {
+    "id": "7a5a74a6",
+    "question": "3(2x - 6) - 11 = 4(x - 3) + 6. If x is the solution to the equation above, what is the value of x - 3?",
+    "choices": {
+      "A": "23/2",
+      "B": "17/2",
+      "C": "15/2",
+      "D": "-15/2"
+    }
+  },
+  {
+    "id": "aa85b138",
+    "question": "2n + 6 = 14. A tree had a height of 6 feet when it was planted. The equation above can be used to find how many years n it took the tree to reach a height of 14 feet. Which of the following is the best interpretation of the number 2 in this context?",
+    "choices": {
+      "A": "The number of years it took the tree to double its height",
+      "B": "The average number of feet that the tree grew per year",
+      "C": "The height, in feet, of the tree when the tree was 1 year old",
+      "D": "The average number of years it takes similar trees to grow 14 feet"
+    }
+  },
+  {
+    "id": "15daa8d6",
+    "question": "2x + 16 = a(x + 8). In the given equation, a is a constant. If the equation has infinitely many solutions, what is the value of a?",
+    "choices": {
+      "A": "2",
+      "B": "4",
+      "C": "8",
+      "D": "16"
+    }
+  },
+  {
+    "id": "12ee1edc",
+    "question": "(b - 2)x = 8. In the given equation, b is a constant. If the equation has no solution, what is the value of b?",
+    "choices": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "10"
+    }
+  },
+  {
+    "id": "70e29454",
+    "question": "a(3 - x) - b = -1 - 2x. In the equation above, a and b are constants. If the equation has infinitely many solutions, what are the values of a and b?",
+    "choices": {
+      "A": "a = 2 and b = 1",
+      "B": "a = 2 and b = 7",
+      "C": "a = -2 and b = 5",
+      "D": "a = -2 and b = -5"
+    }
+  },
+  {
+    "id": "f09097b1",
+    "question": "An agricultural scientist studying the growth of corn plants recorded the height of a corn plant at the beginning of a study and the height of the plant each day for the next 12 days. The scientist found that the height of the plant increased by an average of 1.20 centimeters per day for the 12 days. If the height of the plant on the last day of the study was 36.8 centimeters, what was the height, in centimeters, of the corn plant at the beginning of the study?",
+    "choices": {
+      "A": "14.4",
+      "B": "22.4",
+      "C": "23.6",
+      "D": "35.6"
+    }
+  },
+  {
+    "id": "4f669597",
+    "question": "2(p + 1) + 8(p - 1) = 5p. What value of p is the solution of the equation above?",
+    "choices": {
+      "A": "-1",
+      "B": "0",
+      "C": "5",
+      "D": "10"
+    }
+  },
+  {
+    "id": "ce314070",
+    "question": "If 4x - 1/2 = -5, what is the value of 8x - 1?",
+    "choices": {
+      "A": "2",
+      "B": "-9/8",
+      "C": "-5/2",
+      "D": "-10"
+    }
+  },
+  {
+    "id": "36ab4122",
+    "question": "Megan's regular wage at her job is p dollars per hour for the first 8 hours of work in a day plus 1.5 times her regular hourly wage for work in excess of 8 hours that day. On a given day, Megan worked for 10 hours, and her total earnings for that day were $137.50. What is Megan's regular hourly wage?",
+    "choices": {
+      "A": "$11.75",
+      "B": "$12.50",
+      "C": "$13.25",
+      "D": "$13.75"
+    }
+  },
+  {
+    "id": "5ad9eff0",
+    "question": "The width of a rectangular dance floor is w feet. The length of the floor is 6 feet longer than its width. Which of the following expresses the perimeter, in feet, of the dance floor in terms of w?",
+    "choices": {
+      "A": "2w + 6",
+      "B": "4w + 12",
+      "C": "w^2 + 6",
+      "D": "w^2 + 6w"
+    }
+  },
+  {
+    "id": "45bba652",
+    "question": "If 2(x - 5) + 3(x - 5) = 10, what is the value of x - 5?",
+    "choices": {
+      "A": "2",
+      "B": "5",
+      "C": "7",
+      "D": "12"
+    }
+  },
+  {
+    "id": "eafdbbbd",
+    "question": "1/4(x + 5) - 1/3(x + 5) = -7. What value of x is the solution to the given equation?",
+    "choices": {
+      "A": "-12",
+      "B": "-5",
+      "C": "79",
+      "D": "204"
+    }
+  },
+  {
+    "id": "002dba45",
+    "question": "Line k is defined by y = -17/3 x + 5. Line j is perpendicular to line k in the xy-plane. What is the slope of line j?",
+    "choices": {
+      "A": "3/17",
+      "B": "-3/17",
+      "C": "17/3",
+      "D": "-17/3"
+    }
+  },
+  {
+    "id": "9c7741c6",
+    "question": "On a 210-mile trip, Cameron drove at an average speed of 60 miles per hour for the first x hours. He then completed the trip, driving at an average speed of 50 miles per hour for the remaining y hours. If x = 1, what is the value of y?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    }
+  },
+  {
+    "id": "d62ad380",
+    "question": "An artist paints and sells square tiles. The selling price P, in dollars, of a painted tile is a linear function of the side length of the tile s, in inches, as shown in the table below. Side length, s (inches): 3, 6, 9; Price, P (dollars): 8.00, 18.00, 28.00. Which of the following could define the relationship between s and P?",
+    "choices": {
+      "A": "P = 3s + 10",
+      "B": "P = 10/3 s + 8",
+      "C": "P = 10/3 s - 2",
+      "D": "P = 3/10 s - 1/10"
+    }
+  },
+  {
+    "id": "431c3038",
+    "question": "In an article about exercise, it is estimated that a 160-pound adult uses 200 calories for every 30 minutes of hiking and 150 calories for every 30 minutes of bicycling. An adult who weighs 160 pounds has completed 1 hour of bicycling. Based on the article, how many hours should the adult hike to use a total of 1,900 calories from bicycling and hiking?",
+    "choices": {
+      "A": "9.5",
+      "B": "8.75",
+      "C": "6",
+      "D": "4"
+    }
+  },
+  {
+    "id": "265f2a53",
+    "question": "When line n is graphed in the xy-plane, it has an x-intercept of (-4, 0) and a y-intercept of (0, 86/3). What is the slope of line n?",
+    "choices": {
+      "A": "3/344",
+      "B": "6/43",
+      "C": "43/6",
+      "D": "344/3"
+    }
+  },
+  {
+    "id": "f81a0503",
+    "question": "In the xy-plane, line k passes through the points (0, -5) and (1, -1). Which equation defines line k?",
+    "choices": {
+      "A": "y = -x + 1/4",
+      "B": "y = 1/4 x - 5",
+      "C": "y = -x + 4",
+      "D": "y = 4x - 5"
+    }
+  },
+  {
+    "id": "28c2253f",
+    "question": "Characteristics for Rock Types: Rock type, Weight per volume (lb/ft³), Cost per pound: Basalt, 180, $0.18; Granite, 165, $0.09; Limestone, 120, $0.03; Sandstone, 135, $0.22. A city is planning to build a rock retaining wall, a monument, and a garden in a park. The table above shows four rock types that will be considered for use in the project. Also shown for each rock type is its weight per volume, in pounds per cubic foot (lb/ft³), and the cost per pound, in dollars. Only basalt, granite, and limestone will be used in the garden. The rocks in the garden will have a total weight of 1,000 pounds. If 330 pounds of granite is used, which of the following equations could show the relationship between the amounts, x and y, in ft³, for each of the other rock types used?",
+    "choices": {
+      "A": "165x + 180y = 670",
+      "B": "165x + 120y = 1,000",
+      "C": "120x + 180y = 670",
+      "D": "120x + 180y = 1,000"
+    }
+  },
+  {
+    "id": "2e1a7f66",
+    "question": "Figure A and figure B are both regular polygons. The sum of the perimeter of figure A and the perimeter of figure B is 63 inches. The equation 3x + 6y = 63 represents this situation, where x is the number of sides of figure A and y is the number of sides of figure B. Which statement is the best interpretation of 6 in this context?",
+    "choices": {
+      "A": "Each side of figure B has a length of 6 inches.",
+      "B": "The number of sides of figure B is 6.",
+      "C": "Each side of figure A has a length of 6 inches.",
+      "D": "The number of sides of figure A is 6."
+    }
+  },
+  {
+    "id": "6f6dfe3e",
+    "question": "The table shows three values of x and their corresponding values of y, where n is a constant, for the linear relationship between x and y. x: -6, -3, 0; y: n + 184, n + 92, n. What is the slope of the line that represents this relationship in the xy-plane?",
+    "choices": {
+      "A": "-92/3",
+      "B": "-3/92",
+      "C": "n+92/3",
+      "D": "2n-92/3"
+    }
+  },
+  {
+    "id": "9ed4c1a2",
+    "question": "What is the slope of the graph of y = 1/4(27x + 15) + 7x in the xy-plane?",
+    "choices": {
+      "A": "7.25",
+      "B": "13.75",
+      "C": "27.25",
+      "D": "41"
+    }
+  },
+  {
+    "id": "fb43b85f",
+    "question": "A line passes through the points (4, 6) and (15, 24) in the xy-plane. What is the slope of the line?",
+    "choices": {
+      "A": "18/11",
+      "B": "11/18",
+      "C": "3/2",
+      "D": "2/3"
+    }
+  },
+  {
+    "id": "400798d6",
+    "question": "In triangle QRS, sides QR and RS each have a length of x centimeters and side SQ has a length of y centimeters. The given equation 2x + y = 37 represents this situation. Which of the following is the best interpretation of 37 in this context?",
+    "choices": {
+      "A": "The difference, in centimeters, between the lengths of sides QR and SQ",
+      "B": "The difference, in centimeters, between the lengths of sides QR and RS",
+      "C": "The sum of the lengths, in centimeters, of the three sides of the triangle",
+      "D": "The length, in centimeters, of one of the two sides of equal length"
+    }
+  },
+  {
+    "id": "ca452900",
+    "question": "What is the slope of the graph of y = 5x/13 - 23 in the xy-plane?",
+    "choices": {
+      "A": "-23",
+      "B": "5/13",
+      "C": "13/5",
+      "D": "18/13"
+    }
+  },
+  {
+    "id": "62ef6f73",
+    "question": "A total of 2 squares each have side length r. A total of 6 equilateral triangles each have side length t. None of these squares and triangles shares a side. The sum of the perimeters of all these squares and triangles is 210. Which equation represents this situation?",
+    "choices": {
+      "A": "6r + 24t = 210",
+      "B": "2r + 6t = 210",
+      "C": "8r + 18t = 210",
+      "D": "6r + 2t = 210"
+    }
+  },
+  {
+    "id": "92aa3a94",
+    "question": "Line k is defined by y = 7x + 1/8. Line j is perpendicular to line k in the xy-plane. What is the slope of line j?",
+    "choices": {
+      "A": "-8",
+      "B": "-1/7",
+      "C": "1/8",
+      "D": "7"
+    }
+  },
+  {
+    "id": "3cdbf026",
+    "question": "The graph of the equation ax + ky = 6 is a line in the xy-plane, where a and k are constants. If the line contains the points (-2, -6) and (0, -3), what is the value of k?",
+    "choices": {
+      "A": "-2",
+      "B": "-1",
+      "C": "2",
+      "D": "3"
+    }
+  },
+  {
+    "id": "fdee0fbf",
+    "question": "In the xy-plane, line k intersects the y-axis at the point (0, -6) and passes through the point (2, 2). If the point (20, w) lies on line k, what is the value of w?",
+    "choices": {
+      "A": "-4",
+      "B": "4",
+      "C": "42",
+      "D": "46"
+    }
+  },
+  {
+    "id": "98d3393a",
+    "question": "Line ℓ in the xy-plane is perpendicular to the line with equation x = 2. What is the slope of line ℓ?",
+    "choices": {
+      "A": "0",
+      "B": "1/2",
+      "C": "-2",
+      "D": "The slope of line ℓ is undefined."
+    }
+  },
+  {
+    "id": "0366d965",
+    "question": "The table above shows the coordinates of three points on a line in the xy-plane, where k and n are constants. If the slope of the line is 2, what is the value of k + n?",
+    "choices": {
+      "A": "15",
+      "B": "18",
+      "C": "21",
+      "D": "25"
+    }
+  },
+  {
+    "id": "a1fd2304",
+    "question": "How many liters of a 25% saline solution must be added to 3 liters of a 10% saline solution to obtain a 15% saline solution?",
+    "choices": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    }
+  },
+  {
+    "id": "49800634",
+    "question": "The table shows two values of x and their corresponding values of y. In the xy-plane, the graph of the linear equation representing this relationship passes through the point (1/7, a). What is the value of a?",
+    "choices": {
+      "A": "-4/11",
+      "B": "-4/77",
+      "C": "4/7",
+      "D": "172/7"
+    }
+  },
+  {
+    "id": "184ce5aa",
+    "question": "Line h is defined by (1/5)x + (1/7)y - 70 = 0. Line j is perpendicular to line h in the xy-plane. What is the slope of line j?",
+    "choices": {
+      "A": "-7/5",
+      "B": "-5/7",
+      "C": "7/5",
+      "D": "5/7"
+    }
+  },
+  {
+    "id": "d0e614a6",
+    "question": "(2/5)x + (3/4)y = 7 Which table gives three values of x and their corresponding values of y for the given equation?",
+    "choices": {
+      "A": "x: 1, 2, 4; y: 113/20, 101/20, 77/20",
+      "B": "x: 1, 2, 4; y: 47/5, 44/5, 38/5",
+      "C": "x: 1, 2, 4; y: 148/15, 136/15, 112/15",
+      "D": "x: 1, 2, 4; y: 128/15, 116/15, 92/15"
+    }
+  },
+  {
+    "id": "e62cfe5f",
+    "question": "According to a model, the head width, in millimeters, of a worker bumblebee can be estimated by adding 0.6 to four times the body weight of the bee, in grams. According to the model, what would be the head width, in millimeters, of a worker bumblebee that has a body weight of 0.5 grams?",
+    "choices": {
+      "A": "2.0",
+      "B": "2.6",
+      "C": "3.0",
+      "D": "4.0"
+    }
+  },
+  {
+    "id": "7e3f8363",
+    "question": "In the xy-plane, the graph of the linear function f contains the points (0, 3) and (7, 31). Which equation defines f, where y = f(x)?",
+    "choices": {
+      "A": "f(x) = 28x + 34",
+      "B": "f(x) = 3x + 38",
+      "C": "f(x) = 4x + 3",
+      "D": "f(x) = 7x + 3"
+    }
+  },
+  {
+    "id": "620fe971",
+    "question": "A team of workers has been moving cargo off of a ship. The equation below models the approximate number of tons of cargo, y, that remains to be moved x hours after the team started working. y = 120 - 25x The graph of this equation in the xy-plane is a line. What is the best interpretation of the x-intercept in this context?",
+    "choices": {
+      "A": "The team will have moved all the cargo in about 4.8 hours.",
+      "B": "The team has been moving about 4.8 tons of cargo per hour.",
+      "C": "The team has been moving about 25 tons of cargo per hour.",
+      "D": "The team started with 120 tons of cargo to move."
+    }
+  },
+  {
+    "id": "5cf1bbc9",
+    "question": "The graph of the function f, where y = f(x), gives the total cost y, in dollars, for a certain video game system and x games. What is the best interpretation of the slope of the graph in this context?",
+    "choices": {
+      "A": "Each game costs $25.",
+      "B": "The video game system costs $100.",
+      "C": "The video game system costs $25.",
+      "D": "Each game costs $100."
+    }
+  },
+  {
+    "id": "dae126d7",
+    "question": "The boiling point of water at sea level is 212 degrees Fahrenheit (°F). For every 550 feet above sea level, the boiling point of water is lowered by about 1°F. Which of the following equations can be used to find the boiling point B of water, in °F, x feet above sea level?",
+    "choices": {
+      "A": "B = 550 + x/212",
+      "B": "B = 550 - x/212",
+      "C": "B = 212 + x/550",
+      "D": "B = 212 - x/550"
+    }
+  },
+  {
+    "id": "271f7e3f",
+    "question": "f(x) = (x + 7)/4 For the function f defined above, what is the value of f(9) - f(1)?",
+    "choices": {
+      "A": "1",
+      "B": "2",
+      "C": "1/4",
+      "D": "9/4"
+    }
+  },
+  {
+    "id": "c651cc56",
+    "question": "Some values of the linear function f are shown in the table above. What is the value of f(3)?",
+    "choices": {
+      "A": "6",
+      "B": "7",
+      "C": "8",
+      "D": "9"
+    }
+  },
+  {
+    "id": "c22b5f25",
+    "question": "In the xy-plane, the points (-2, 3) and (4, -5) lie on the graph of which of the following linear functions?",
+    "choices": {
+      "A": "f(x) = x + 5",
+      "B": "f(x) = (1/2)x + 4",
+      "C": "f(x) = -(4/3)x + (1/3)",
+      "D": "f(x) = -(3/2)x + 1"
+    }
+  },
+  {
+    "id": "11e1ab81",
+    "question": "The graph above shows the distance traveled d, in feet, by a product on a conveyor belt m minutes after the product is placed on the belt. Which of the following equations correctly relates d and m?",
+    "choices": {
+      "A": "d = 2m",
+      "B": "d = (1/2)m",
+      "C": "d = m + 2",
+      "D": "d = 2m + 2"
+    }
+  },
+  {
+    "id": "4fe4fd7c",
+    "question": "c(x) = mx + 500 A company's total cost c(x), in dollars, to produce x shirts is given by the function above, where m is a constant and x > 0. The total cost to produce 100 shirts is $800. What is the total cost, in dollars, to produce 1000 shirts?",
+    "choices": {
+      "A": "3000",
+      "B": "3500",
+      "C": "3800",
+      "D": "8000"
+    }
+  },
+  {
+    "id": "3122fc7b",
+    "question": "A linear model estimates the population of a city from 1991 to 2015. The model estimates the population was 57 thousand in 1991, 224 thousand in 2011, and x thousand in 2015. To the nearest whole number, what is the value of x?",
+    "choices": {
+      "A": "246",
+      "B": "258",
+      "C": "274",
+      "D": "391"
+    }
+  },
+  {
+    "id": "c01f4a95",
+    "question": "j(x) = mx + 144 For the linear function j, m is a constant and j(12) = 18. What is the value of j(10)?",
+    "choices": {
+      "A": "6",
+      "B": "15",
+      "C": "132",
+      "D": "134"
+    }
+  },
+  {
+    "id": "868fc236",
+    "question": "The table above gives the typical amounts of energy per gram, expressed in both food calories and kilojoules, of the three macronutrients in food. If x food calories is equivalent to k kilojoules, of the following, which best represents the relationship between x and k?",
+    "choices": {
+      "A": "k = 0.24x",
+      "B": "k = 4.2x",
+      "C": "x = 4.2k",
+      "D": "xk = 4.2"
+    }
+  },
+  {
+    "id": "042aa429",
+    "question": "If f(x) = x + 7 and g(x) = 7x, what is the value of 4f(2) - g(2)?",
+    "choices": {
+      "A": "-5",
+      "B": "1",
+      "C": "22",
+      "D": "28"
+    }
+  },
+  {
+    "id": "113b938e",
+    "question": "y = 18 - 5x The equation above represents the speed y, in feet per second, of Sheila's bicycle x seconds after she applied the brakes at the end of a ride. If the equation is graphed in the xy-plane, which of the following is the best interpretation of the x-coordinate of the line's x-intercept in the context of the problem?",
+    "choices": {
+      "A": "The speed of Sheila's bicycle, in feet per second, before Sheila applied the brakes",
+      "B": "The number of feet per second the speed of Sheila's bicycle decreased each second after Sheila applied the brakes",
+      "C": "The number of seconds it took from the time Sheila began applying the brakes until the bicycle came to a complete stop",
+      "D": "The number of feet Sheila's bicycle traveled from the time she began applying the brakes until the bicycle came to a complete stop"
+    }
+  },
+  {
+    "id": "441558e7",
+    "question": "Scientists collected fallen acorns that each housed a colony of the ant species P. ohioensis and analyzed each colony's structure. For any of these colonies, if the colony has x worker ants, the equation y = 0.67x + 2.6, where 90 ≤ x ≤ 110, gives the predicted number of larvae, y, in the colony. If one of these colonies has 58 worker ants, which of the following is closest to the predicted number of larvae in the colony?",
+    "choices": {
+      "A": "41",
+      "B": "61",
+      "C": "83",
+      "D": "190"
+    }
+  },
+  {
+    "id": "8a6de407",
+    "question": "The function f is defined by f(x) = mx + b, where m and b are constants. If f(0) = 18 and f(1) = 20, what is the value of m?",
+    "choices": {
+      "A": "2",
+      "B": "9",
+      "C": "18",
+      "D": "38"
+    }
+  },
+  {
+    "id": "41fdc0b8",
+    "question": "The table above shows the population of Greenleaf, Idaho, for the years 2000 and 2010. If the relationship between population and year is linear, which of the following functions P models the population of Greenleaf t years after 2000?",
+    "choices": {
+      "A": "P(t) = 862 - 1.6t",
+      "B": "P(t) = 862 - 16t",
+      "C": "P(t) = 862 + 16(t - 2,000)",
+      "D": "P(t) = 862 - 1.6(t - 2,000)"
+    }
+  },
+  {
+    "id": "1c29bfd1",
+    "question": "The pressure exerted on a scuba diver at sea level is 14.70 pounds per square inch (psi). For each foot the scuba diver descends below sea level, the pressure exerted on the scuba diver increases by 0.44 psi. What is the total pressure, in psi, exerted on the scuba diver at 105 feet below sea level?",
+    "choices": {
+      "A": "60.90",
+      "B": "31.50",
+      "C": "14.70",
+      "D": "0.44"
+    }
+  },
+  {
+    "id": "295a41f0",
+    "question": "The graph of y = f(x) - 11 is shown. Which equation defines the linear function f?",
+    "choices": {
+      "A": "f(x) = -13x - 11",
+      "B": "f(x) = -2x + 7",
+      "C": "f(x) = -13x + 7",
+      "D": "f(x) = -2x - 11"
+    }
+  },
+  {
+    "id": "2f34cd1c",
+    "question": "The function f(x) = 55.20 - 0.16x gives the estimated surface water temperature f(x), in degrees Celsius, of a body of water on the xth day of the year, where 220 ≤ x ≤ 360. Based on the model, what is the estimated surface water temperature, in degrees Celsius, of this body of water on the 326th day of the year?",
+    "choices": {
+      "A": "55.20",
+      "B": "3.04",
+      "C": "-0.16",
+      "D": "-52.16"
+    }
+  },
+  {
+    "id": "2b15d65f",
+    "question": "An economist modeled the demand Q for a certain product as a linear function of the selling price P. The demand was 20,000 units when the selling price was $40 per unit, and the demand was 15,000 units when the selling price was $60 per unit. Based on the model, what is the demand, in units, when the selling price is $55 per unit?",
+    "choices": {
+      "A": "16,250",
+      "B": "16,500",
+      "C": "16,750",
+      "D": "17,500"
+    }
+  },
+  {
+    "id": "be9cb6a2",
+    "question": "The cost of renting a backhoe for up to 10 days is $270 for the first day and $135 for each additional day. Which of the following equations gives the cost y, in dollars, of renting the backhoe for x days, where x is a positive integer and x ≤ 10?",
+    "choices": {
+      "A": "y = 270x - 135",
+      "B": "y = 270x + 135",
+      "C": "y = 135x + 270",
+      "D": "y = 135x + 135"
+    }
+  },
+  {
+    "id": "b988eeec",
+    "question": "The functions f and g are defined as f(x) = 1/2x - 9 and g(x) = 3/2x + 21. If the function h is defined as h(x) = f(x) + g(x), what is the x-coordinate of the x-intercept of the graph of y = h(x) in the xy-plane?",
+    "choices": {
+      "A": "-6",
+      "B": "-4",
+      "C": "0",
+      "D": "2"
+    }
+  },
+  {
+    "id": "af2ba762",
+    "question": "According to data provided by the US Department of Energy, the average price per gallon of regular gasoline in the United States from September 1, 2014, to December 1, 2014, is modeled by the function F defined below, where F(x) is the average price per gallon x months after September 1. F(x) = 2.74 - 0.19(x - 3) The constant 2.74 in this function estimates which of the following?",
+    "choices": {
+      "A": "The average monthly decrease in the price per gallon",
+      "B": "The difference in the average price per gallon from September 1, 2014, to December 1, 2014",
+      "C": "The average price per gallon on September 1, 2014",
+      "D": "The average price per gallon on December 1, 2014"
+    }
+  },
+  {
+    "id": "16889ef3",
+    "question": "Oil and gas production in a certain area dropped from 4 million barrels in 2000 to 1.9 million barrels in 2013. Assuming that the oil and gas production decreased at a constant rate, which of the following linear functions f best models the production, in millions of barrels, t years after the year 2000?",
+    "choices": {
+      "A": "f(t) = 21/130 t + 4",
+      "B": "f(t) = 19/130 t + 4",
+      "C": "f(t) = -21/130 t + 4",
+      "D": "f(t) = -19/130 t + 4"
+    }
+  },
+  {
+    "id": "6989c80a",
+    "question": "The function F(x) = 9/5(x - 273.15) + 32 gives the temperature, in degrees Fahrenheit, that corresponds to a temperature of x kelvins. If a temperature increased by 2.10 kelvins, by how much did the temperature increase, in degrees Fahrenheit?",
+    "choices": {
+      "A": "3.78",
+      "B": "35.78",
+      "C": "487.89",
+      "D": "519.89"
+    }
+  },
+  {
+    "id": "78391fcc",
+    "question": "The table above shows some values of x and their corresponding values f(x) for the linear function f. What is the x-intercept of the graph of y = f(x) in the xy-plane? \nx | -11 | -10 | -9 | -8\nf(x) | 21 | 18 | 15 | 12",
+    "choices": {
+      "A": "(-3,0)",
+      "B": "(-4,0)",
+      "C": "(-9,0)",
+      "D": "(-12,0)"
+    }
+  },
+  {
+    "id": "a04050d8",
+    "question": "The table above gives the typical amounts of energy per gram, expressed in both food calories and kilojoules, of the three macronutrients in food. If the 180 food calories in a granola bar come entirely from p grams of protein, f grams of fat, and c grams of carbohydrate, which of the following expresses f in terms of p and c ? \nMacronutrient | Food calories | Kilojoules\nProtein | 4.0 | 16.7\nFat | 9.0 | 37.7\nCarbohydrate | 4.0 | 16.7",
+    "choices": {
+      "A": "f = 20 + 4/9(p + c)",
+      "B": "f = 20 - 4/9(p + c)",
+      "C": "f = 20 - 4/9(p - c)",
+      "D": "f = 20 + 9/4(p + c)"
+    }
+  },
+  {
+    "id": "daad7c32",
+    "question": "An object hangs from a spring. The formula ℓ = 30 + 2w relates the length ℓ, in centimeters, of the spring to the weight w, in newtons, of the object. Which of the following describes the meaning of the 2 in this context?",
+    "choices": {
+      "A": "The length, in centimeters, of the spring with no weight attached",
+      "B": "The weight, in newtons, of an object that will stretch the spring 30 centimeters",
+      "C": "The increase in the weight, in newtons, of the object for each one-centimeter increase in the length of the spring",
+      "D": "The increase in the length, in centimeters, of the spring for each one-newton increase in the weight of the object"
+    }
+  },
+  {
+    "id": "023c0a8d",
+    "question": "For the function f, if f(3x) = x - 6 for all values of x, what is the value of f(6)?",
+    "choices": {
+      "A": "-6",
+      "B": "-4",
+      "C": "0",
+      "D": "2"
+    }
+  },
+  {
+    "id": "f224df07",
+    "question": "A cargo helicopter delivers only 100-pound packages and 120-pound packages. For each delivery trip, the helicopter must carry at least 10 packages, and the total weight of the packages can be at most 1,100 pounds. What is the maximum number of 120-pound packages that the helicopter can carry per trip?",
+    "choices": {
+      "A": "2",
+      "B": "4",
+      "C": "5",
+      "D": "6"
+    }
+  },
+  {
+    "id": "b1228811",
+    "question": "Marisa needs to hire at least 10 staff members for an upcoming project. The staff members will be made up of junior directors, who will be paid $640 per week, and senior directors, who will be paid $880 per week. Her budget for paying the staff members is no more than $9,700 per week. She must hire at least 3 junior directors and at least 1 senior director. Which of the following systems of inequalities represents the conditions described if x is the number of junior directors and y is the number of senior directors?",
+    "choices": {
+      "A": "640x + 880y ≥ 9,700\nx + y ≤ 10\nx ≥ 3\ny ≥ 1",
+      "B": "640x + 880y ≤ 9,700\nx + y ≥ 10\nx ≥ 3\ny ≥ 1",
+      "C": "640x + 880y ≥ 9,700\nx + y ≥ 10\nx ≤ 3\ny ≤ 1",
+      "D": "640x + 880y ≤ 9,700\nx + y ≤ 10\nx ≤ 3\ny ≤ 1"
+    }
+  },
+  {
+    "id": "64c85440",
+    "question": "In North America, the standard width of a parking space is at least 7.5 feet and no more than 9.0 feet. A restaurant owner recently resurfaced the restaurant's parking lot and wants to determine the number of parking spaces, n, in the parking lot that could be placed perpendicular to a curb that is 135 feet long, based on the standard width of a parking space. Which of the following describes all the possible values of n?",
+    "choices": {
+      "A": "18 ≤ n ≤ 135",
+      "B": "7.5 ≤ n ≤ 9",
+      "C": "15 ≤ n ≤ 135",
+      "D": "15 ≤ n ≤ 18"
+    }
+  },
+  {
+    "id": "968e9e51",
+    "question": "Which of the following ordered pairs (x, y) is a solution to the system of inequalities: y ≤ x and y ≤ -x?",
+    "choices": {
+      "A": "(1, 0)",
+      "B": "(-1, 0)",
+      "C": "(0, 1)",
+      "D": "(0, -1)"
+    }
+  },
+  {
+    "id": "bf5f80c6",
+    "question": "Which point (x, y) is a solution to the given inequality in the xy-plane: y < -4x + 4?",
+    "choices": {
+      "A": "(-4, 0)",
+      "B": "(0, 5)",
+      "C": "(2, 1)",
+      "D": "(2, -1)"
+    }
+  },
+  {
+    "id": "80da233d",
+    "question": "A certain elephant weighs 200 pounds at birth and gains more than 2 but less than 3 pounds per day during its first year. Which of the following inequalities represents all possible weights w, in pounds, for the elephant 365 days after birth?",
+    "choices": {
+      "A": "400 < w < 600",
+      "B": "565 < w < 930",
+      "C": "730 < w < 1,095",
+      "D": "930 < w < 1,295"
+    }
+  },
+  {
+    "id": "b31c3117",
+    "question": "The Karvonen formula H = 120p + 60 shows the relationship between Alice's target heart rate H, in beats per minute (bpm), and the intensity level p of different activities. When p = 0, Alice has a resting heart rate. When p = 1, Alice has her maximum heart rate. It is recommended that p be between 0.5 and 0.85 for Alice when she trains. Which of the following inequalities describes Alice's target training heart rate?",
+    "choices": {
+      "A": "120 ≤ H ≤ 162",
+      "B": "102 ≤ H ≤ 120",
+      "C": "60 ≤ H ≤ 162",
+      "D": "60 ≤ H ≤ 102"
+    }
+  },
+  {
+    "id": "e9ef0e6b",
+    "question": "A model estimates that whales from the genus Eschrichtius travel 72 to 77 miles in the ocean each day during their migration. Based on this model, which inequality represents the estimated total number of miles, x, a whale from the genus Eschrichtius could travel in 16 days of its migration?",
+    "choices": {
+      "A": "72 + 16 ≤ x ≤ 77 + 16",
+      "B": "(72)(16) ≤ x ≤ (77)(16)",
+      "C": "72 ≤ 16 + x ≤ 77",
+      "D": "72 ≤ 16x ≤ 77"
+    }
+  },
+  {
+    "id": "90bd9ef8",
+    "question": "The average annual energy cost for a certain home is $4,334. The homeowner plans to spend $25,000 to install a geothermal heating system. The homeowner estimates that the average annual energy cost will then be $2,712. Which of the following inequalities can be solved to find t, the number of years after installation at which the total amount of energy cost savings will exceed the installation cost?",
+    "choices": {
+      "A": "25,000 > (4,334 - 2,712)t",
+      "B": "25,000 < (4,334 - 2,712)t",
+      "C": "25,000 - 4,334 > 2,712t",
+      "D": "25,000 > (4,332/2,712)t"
+    }
+  },
+  {
+    "id": "948087f2",
+    "question": "Which of the following ordered pairs (x, y) satisfies the system of inequalities: y ≤ 3x + 1 and x - y > 1?",
+    "choices": {
+      "A": "(-2, -1)",
+      "B": "(-1, 3)",
+      "C": "(1, 5)",
+      "D": "(2, -1)"
+    }
+  },
+  {
+    "id": "34aca984",
+    "question": "The length of a rectangle is 50 inches and the width is x inches. The perimeter is at most 210 inches. Which inequality represents this situation?",
+    "choices": {
+      "A": "2x + 100 ≤ 210",
+      "B": "2x + 100 ≥ 210",
+      "C": "2x + 50 ≤ 210",
+      "D": "2x + 50 ≥ 210"
+    }
+  },
+  {
+    "id": "45cfb9de",
+    "question": "Adam's school is a 20-minute walk or a 5-minute bus ride away from his house. The bus runs once every 30 minutes, and the number of minutes, w, that Adam waits for the bus varies between 0 and 30. Which of the following inequalities gives the values of w for which it would be faster for Adam to walk to school?",
+    "choices": {
+      "A": "w - 5 < 20",
+      "B": "w - 5 > 20",
+      "C": "w + 5 < 20",
+      "D": "w + 5 > 20"
+    }
+  },
+  {
+    "id": "95cad55f",
+    "question": "A laundry service is buying detergent and fabric softener from its supplier. The supplier will deliver no more than 300 pounds in a shipment. Each container of detergent weighs 7.35 pounds, and each container of fabric softener weighs 6.2 pounds. The service wants to buy at least twice as many containers of detergent as containers of fabric softener. Let d represent the number of containers of detergent, and let s represent the number of containers of fabric softener, where d and s are nonnegative integers. Which of the following systems of inequalities best represents this situation?",
+    "choices": {
+      "A": "7.35d + 6.2s ≤ 300\nd ≥ 2s",
+      "B": "7.35d + 6.2s ≤ 300\n2d ≥ s",
+      "C": "14.7d + 6.2s ≤ 300\nd ≥ 2s",
+      "D": "14.7d + 6.2s ≤ 300\n2d ≥ s"
+    }
+  },
+  {
+    "id": "ee2f611f",
+    "question": "A local transit company sells a monthly pass for $95 that allows an unlimited number of trips of any length. Tickets for individual trips cost $1.50, $2.50, or $3.50, depending on the length of the trip. What is the minimum number of trips per month for which a monthly pass could cost less than purchasing individual tickets for trips?",
+    "choices": {
+      "A": "27",
+      "B": "38",
+      "C": "63",
+      "D": "64"
+    }
+  },
+  {
+    "id": "6c71f3ec",
+    "question": "A salesperson's total earnings consist of a base salary of x dollars per year, plus commission earnings of 11% of the total sales the salesperson makes during the year. This year, the salesperson has a goal for the total earnings to be at least 3 times and at most 4 times the base salary. Which of the following inequalities represents all possible values of total sales s, in dollars, the salesperson can make this year in order to meet that goal?",
+    "choices": {
+      "A": "2x ≤ s ≤ 3x",
+      "B": "2/0.11 x ≤ s ≤ 3/0.11 x",
+      "C": "3x ≤ s ≤ 4x",
+      "D": "3/0.11 x ≤ s ≤ 4/0.11 x"
+    }
+  },
+  {
+    "id": "1a621af4",
+    "question": "A number x is at most 2 less than 3 times the value of y. If the value of y is -4, what is the greatest possible value of x?",
+    "choices": {
+      "A": "-10",
+      "B": "-8",
+      "C": "-6",
+      "D": "-4"
+    }
+  },
+  {
+    "id": "1035faea",
+    "question": "A psychologist set up an experiment to study the tendency of a person to select the first item when presented with a series of items. In the experiment, 300 people were presented with a set of five pictures arranged in random order. Each person was asked to choose the most appealing picture. Of the first 150 participants, 36 chose the first picture in the set. Among the remaining 150 participants, p people chose the first picture in the set. If more than 20% of all participants chose the first picture in the set, which of the following inequalities best describes the possible values of p?",
+    "choices": {
+      "A": "p > 0.20(300 - 36), where p ≤ 150",
+      "B": "p > 0.20(300 + 36), where p ≤ 150",
+      "C": "p - 36 > 0.20(300), where p ≤ 150",
+      "D": "p + 36 > 0.20(300), where p ≤ 150"
+    }
+  },
+  {
+    "id": "5bf5136d",
+    "question": "The triangle inequality theorem states that the sum of any two sides of a triangle must be greater than the length of the third side. If a triangle has side lengths of 6 and 12, which inequality represents the possible lengths, x, of the third side of the triangle?",
+    "choices": {
+      "A": "x < 18",
+      "B": "x > 18",
+      "C": "6 < x < 18",
+      "D": "x < 6 or x > 18"
+    }
+  },
+  {
+    "id": "e8f9e117",
+    "question": "The formula I = V/R is Ohm's law for an electric circuit with current I, in amperes, potential difference V, in volts, and resistance R, in ohms. A circuit has a resistance of 500 ohms, and its potential difference will be generated by n six-volt batteries that produce a total potential difference of 6n volts. If the circuit is to have a current of no more than 0.25 ampere, what is the greatest number, n, of six-volt batteries that can be used?",
+    "choices": {
+      "A": "20",
+      "B": "21",
+      "C": "41",
+      "D": "42"
+    }
+  },
+  {
+    "id": "963da34c",
+    "question": "A shipping service restricts the dimensions of the boxes it will ship for a certain type of service. The restriction states that for boxes shaped like rectangular prisms, the sum of the perimeter of the base of the box and the height of the box cannot exceed 130 inches. The perimeter of the base is determined using the width and length of the box. If a box has a height of 60 inches and its length is 2.5 times the width, which inequality shows the allowable width x, in inches, of the box?",
+    "choices": {
+      "A": "0 < x ≤ 10",
+      "B": "0 < x ≤ 11 2/3",
+      "C": "0 < x ≤ 17 1/2",
+      "D": "0 < x ≤ 20"
+    }
+  },
+  {
+    "id": "b8e73b5b",
+    "question": "Ken is working this summer as part of a crew on a farm. He earned $8 per hour for the first 10 hours he worked this week. Because of his performance, his crew leader raised his salary to $10 per hour for the rest of the week. Ken saves 90% of his earnings from each week. What is the least number of hours he must work the rest of the week to save at least $270 for the week?",
+    "choices": {
+      "A": "38",
+      "B": "33",
+      "C": "22",
+      "D": "16"
+    }
+  },
+  {
+    "id": "830120b0",
+    "question": "y > 2x - 1\n2x > 5\n\nWhich of the following consists of the y-coordinates of all the points that satisfy the system of inequalities above?",
+    "choices": {
+      "A": "y > 6",
+      "B": "y > 4",
+      "C": "y > 5/2",
+      "D": "y > 3/2"
+    }
+  },
+  {
+    "id": "2c121b25",
+    "question": "Valentina bought two containers of beads. In the first container 30% of the beads are red, and in the second container 70% of the beads are red. Together, the containers have at least 400 red beads. Which inequality shows this relationship, where x is the total number of beads in the first container and y is the total number of beads in the second container?",
+    "choices": {
+      "A": "0.3x + 0.7y ≥ 400",
+      "B": "0.7x + 0.3y ≤ 400",
+      "C": "x/3 + y/7 ≤ 400",
+      "D": "30x + 70y ≥ 400"
+    }
+  },
+  {
+    "id": "ee439cff",
+    "question": "On a car trip, Rhett and Jessica each drove for part of the trip, and the total distance they drove was under 220 miles. Rhett drove at an average speed of 35 miles per hour (mph), and Jessica drove at an average speed of 40 mph. Which of the following inequalities represents this situation, where r is the number of hours Rhett drove and j is the number of hours Jessica drove?",
+    "choices": {
+      "A": "35r + 40j > 220",
+      "B": "35r + 40j < 220",
+      "C": "40r + 35j > 220",
+      "D": "40r + 35j < 220"
+    }
+  },
+  {
+    "id": "563407e5",
+    "question": "A bakery sells trays of cookies. Each tray contains at least 50 cookies but no more than 60. Which of the following could be the total number of cookies on 4 trays of cookies?",
+    "choices": {
+      "A": "165",
+      "B": "205",
+      "C": "245",
+      "D": "285"
+    }
+  },
+  {
+    "id": "df32b09c",
+    "question": "Tom scored 85, 78, and 98 on his first three exams in history class. Solving which inequality gives the score, G, on Tom's fourth exam that will result in a mean score on all four exams of at least 90?",
+    "choices": {
+      "A": "90 − (85 + 78 + 98) ≤ 4G",
+      "B": "4G + 85 + 78 + 98 ≥ 360",
+      "C": "(G + 85 + 78 + 98)/4 ≥ 90",
+      "D": "(85 + 78 + 98)/4 ≥ 90 − 4G"
+    }
+  },
+  {
+    "id": "915463e0",
+    "question": "Normal body temperature for an adult is between 97.8°F and 99°F, inclusive. If Kevin, an adult male, has a body temperature that is considered to be normal, which of the following could be his body temperature?",
+    "choices": {
+      "A": "96.7°F",
+      "B": "97.6°F",
+      "C": "97.9°F",
+      "D": "99.7°F"
+    }
+  },
+  {
+    "id": "89541f9b",
+    "question": "Which of the following ordered pairs (x, y) satisfies the inequality 5x − 3y < 4?",
+    "choices": {
+      "A": "I only",
+      "B": "II only",
+      "C": "I and II only",
+      "D": "I and III only"
+    }
+  },
+  {
+    "id": "84d0d07e",
+    "question": "A clothing store is having a sale on shirts and pants. During the sale, the cost of each shirt is $15 and the cost of each pair of pants is $25. Geoff can spend at most $120 at the store. If Geoff buys s shirts and p pairs of pants, which of the following must be true?",
+    "choices": {
+      "A": "15s + 25p ≤ 120",
+      "B": "15s + 25p ≥ 120",
+      "C": "25s + 15p ≤ 120",
+      "D": "25s + 15p ≥ 120"
+    }
+  },
+  {
+    "id": "e744499e",
+    "question": "An elementary school teacher is ordering x workbooks and y sets of flash cards for a math class. The teacher must order at least 20 items, but the total cost of the order must not be over $80. If the workbooks cost $3 each and the flash cards cost $4 per set, which of the following systems of inequalities models this situation?",
+    "choices": {
+      "A": "x + y ≥ 20\n3x + 4y ≤ 80",
+      "B": "x + y ≥ 20\n3x + 4y ≥ 80",
+      "C": "3x + 4y ≤ 20\nx + y ≥ 80",
+      "D": "x + y ≤ 20\n3x + 4y ≥ 80"
+    }
+  },
+  {
+    "id": "b75f7812",
+    "question": "Maria plans to rent a boat. The boat rental costs $60 per hour, and she will also have to pay for a water safety course that costs $10. Maria wants to spend no more than $280 for the rental and the course. If the boat rental is available only for a whole number of hours, what is the maximum number of hours for which Maria can rent the boat?",
+    "choices": {
+      "A": "4",
+      "B": "4.5",
+      "C": "5",
+      "D": "4.67"
+    }
+  },
+  {
+    "id": "72a5fd28",
+    "question": "For a party, 50 dinner rolls are needed. Dinner rolls are sold in packages of 12. What is the minimum number of packages that should be bought for the party?",
+    "choices": {
+      "A": "4",
+      "B": "5",
+      "C": "4.17",
+      "D": "6"
+    }
+  },
+  {
+    "id": "86f7483f",
+    "question": "During spring migration, a dragonfly traveled a minimum of 1,510 miles and a maximum of 4,130 miles between stopover locations. Which inequality represents this situation, where d is a possible distance, in miles, this dragonfly traveled between stopover locations during spring migration?",
+    "choices": {
+      "A": "d ≤ 1,510",
+      "B": "1,510 ≤ d ≤ 4,130",
+      "C": "d ≥ 4,130",
+      "D": "4,130 ≤ d ≤ 5,640"
+    }
   }
 ]
