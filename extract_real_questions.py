@@ -28,19 +28,23 @@ def extract_questions_from_pdf(client: Anthropic, pdf_path: Path) -> List[Dict]:
         pdf_content = f.read()
     
     # Create the prompt
-    prompt = """Please analyze this SAT math practice PDF and extract questions that meet these criteria:
-1. Text-only questions (no graphs, figures, or images required to solve)
-2. Multiple choice format with exactly 4 options (A, B, C, D)
-3. Clear correct answer provided
+    prompt = """Please analyze this SAT math practice PDF and extract ALL questions into JSON format.
 
-For each qualifying question, extract:
-- The complete question text
-- All 4 answer choices
-- The correct answer letter
-
-Format your response as a JSON array like this:
+Your process should be:
+1. Read each question in the PDF file (each question is on a new page)
+2. For each question, determine if it meets the criteria. If it doesn't include a graph, then it is a valid question.
+3. If it is a valid question, extract the question ID, the complete question text, and all 4 multiple choice choices. The question should only contain numbers and basic arithmetic operations. Do not use unicode escape sequences.
+4. If the question does not have any multiple choice choices, you should generate 4 choices following the instructions below
+<instructions_for_generating_choices>
+1. Solve the question to get the correct answer. Put your reasoning in <reasoning> tags. Verify that the answer is correct.
+2. Generate three incorrect answer choices, and validate that they are incorrect. Put your reasoning in <reasoning> tags.
+3. Use the above correct and incorrect choices as the four choices.
+</instructions_for_generating_choices>
+4. Format your response as a JSON array like so:
+<json>
 [
     {
+        "id": "unique-id-for-this-question",
         "question": "Complete question text here",
         "choices": {
             "A": "First choice",
@@ -48,17 +52,16 @@ Format your response as a JSON array like this:
             "C": "Third choice",
             "D": "Fourth choice"
         },
-        "answer": "B"
     }
 ]
-
-Only include questions that can be fully understood and solved with text alone. Skip any questions that reference graphs, figures, tables, or diagrams."""
+</json>
+"""
 
     try:
         # Use PDF analysis (note: this requires the file to be uploaded to Anthropic)
         # For now, we'll simulate by asking to analyze the PDF content
         response = client.messages.create(
-            model="claude-3-5-sonnet-20241022",
+            model="claude-3-7-sonnet-latest",
             max_tokens=4000,
             messages=[
                 {
@@ -118,27 +121,15 @@ def main():
         questions = extract_questions_from_pdf(client, pdf_file)
         print(f"Extracted {len(questions)} questions")
         all_questions.extend(questions)
-        
-        # Stop if we have enough questions
-        if len(all_questions) >= 10:
-            break
-    
-    # Take only the first 10 questions
-    selected_questions = all_questions[:10]
     
     # Save to JSON
     output_file = "data/real_questions.json"
     os.makedirs("data", exist_ok=True)
     
-    with open(output_file, 'w') as f:
-        json.dump(selected_questions, f, indent=2)
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(all_questions, f, indent=2, ensure_ascii=False)
     
-    print(f"\nSaved {len(selected_questions)} questions to {output_file}")
-    
-    # Display summary
-    for i, q in enumerate(selected_questions, 1):
-        print(f"\nQuestion {i}: {q['question'][:100]}...")
-        print(f"Correct answer: {q['answer']}")
+    print(f"\nSaved {len(all_questions)} questions to {output_file}")
 
 
 if __name__ == "__main__":
