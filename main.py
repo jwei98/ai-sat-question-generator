@@ -6,6 +6,13 @@ from dotenv import load_dotenv
 from models.question import Question
 from generators.question_generator import QuestionGenerator
 from evaluators.accuracy import AccuracyEvaluator
+from utils.display import (
+    display_section_header,
+    display_question,
+    display_evaluation,
+    display_summary,
+    create_file_output
+)
 
 load_dotenv()
 
@@ -52,17 +59,7 @@ def generate(evaluate, output_json, count, output, quiet):
             }
             
             if not output_json and not quiet:
-                if count > 1:
-                    click.echo(f"\n{'='*50}")
-                    click.echo(f"Question {i}/{count}:")
-                    click.echo("="*50)
-                else:
-                    click.echo("\n" + "="*50)
-                    click.echo("Generated Question:")
-                    click.echo("="*50)
-                click.echo(question.format_for_display())
-                click.echo(f"\nCorrect Answer: {question.answer}")
-                click.echo("="*50)
+                display_question(question, i, count)
             
             # Evaluate if requested
             if evaluate:
@@ -77,25 +74,13 @@ def generate(evaluate, output_json, count, output, quiet):
                 result["accuracy_verified"] = evaluation['correct']
                 
                 if not output_json and not quiet:
-                    click.echo("\n" + "-"*50)
-                    click.echo("Accuracy Evaluation:")
-                    click.echo("-"*50)
-                    click.echo(f"Mathematically Correct: {'✓' if evaluation['correct'] else '✗'}")
-                    click.echo(f"Explanation: {evaluation['explanation']}")
-                    if evaluation.get('solution_steps'):
-                        click.echo(f"\nSolution Steps:\n{evaluation['solution_steps']}")
-                    click.echo("-"*50)
+                    display_evaluation(evaluation)
             
             results.append(result)
         
         # Display summary for multiple questions with evaluation
         if evaluate and count > 1 and not output_json:
-            click.echo(f"\n\n{'='*50}")
-            click.echo("SUMMARY")
-            click.echo("="*50)
-            click.echo(f"Total Questions Generated: {len(results)}")
-            click.echo(f"Mathematically Correct: {accurate_count} ({accurate_count/len(results)*100:.1f}%)")
-            click.echo("="*50)
+            display_summary(len(results), accurate_count)
         
         # Handle output
         if output_json:
@@ -110,14 +95,7 @@ def generate(evaluate, output_json, count, output, quiet):
         
         # Save to file if requested
         if output:
-            file_output = {
-                "questions": results,
-                "summary": {
-                    "total": len(results),
-                    "accurate": accurate_count if evaluate else None,
-                    "accuracy_rate": accurate_count/len(results) if evaluate and results else None
-                }
-            }
+            file_output = create_file_output(results, evaluate, accurate_count)
             json.dump(file_output, output, indent=2)
             click.echo(f"\nResults saved to: {output.name}")
             
@@ -142,20 +120,11 @@ def evaluate_file(question_json):
         result = evaluator.evaluate(question)
         
         # Display results
-        click.echo("\n" + "="*50)
-        click.echo("Question:")
-        click.echo("="*50)
+        display_section_header("Question:")
         click.echo(question.format_for_display())
         click.echo(f"\nCorrect Answer: {question.answer}")
         
-        click.echo("\n" + "-"*50)
-        click.echo("Accuracy Evaluation:")
-        click.echo("-"*50)
-        click.echo(f"Mathematically Correct: {'✓' if result['correct'] else '✗'}")
-        click.echo(f"Explanation: {result['explanation']}")
-        if result.get('solution_steps'):
-            click.echo(f"\nSolution Steps:\n{result['solution_steps']}")
-        click.echo("-"*50)
+        display_evaluation(result)
         
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
