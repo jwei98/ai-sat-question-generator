@@ -136,12 +136,11 @@ def generate(count, output, quiet, model):
 
 
 @evaluate.command()
-@click.option('--count', '-n', default=10, help='Number of questions to evaluate')
-@click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with questions')
+@click.option('--input', '-i', type=click.Path(exists=True), required=True, help='Input JSON file with questions')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Show summary only')
 @click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
-def accuracy(count, input, output, quiet, model):
+def accuracy(input, output, quiet, model):
     """Evaluate mathematical accuracy of questions"""
     
     try:
@@ -150,32 +149,27 @@ def accuracy(count, input, output, quiet, model):
         if not quiet:
             click.echo(f"Using model: {model_name}")
         
-        # Load or generate questions
-        if input:
-            click.echo(f"Loading questions from {input}...")
-            with open(input, 'r') as f:
-                data = json.load(f)
-            
-            # Handle different formats
-            if isinstance(data, dict) and 'questions' in data:
-                questions_data = data['questions']
-            elif isinstance(data, list):
-                questions_data = data
-            else:
-                questions_data = [data]
-            
-            # Convert to Question objects
-            questions = []
-            for q in questions_data[:count]:
-                questions.append(Question(
-                    question=q.get('question', q.get('content', '')),
-                    choices=q['choices'],
-                    answer=q.get('answer', q.get('correct_answer', ''))
-                ))
+        # Load questions from file
+        click.echo(f"Loading questions from {input}...")
+        with open(input, 'r') as f:
+            data = json.load(f)
+        
+        # Handle different formats
+        if isinstance(data, dict) and 'questions' in data:
+            questions_data = data['questions']
+        elif isinstance(data, list):
+            questions_data = data
         else:
-            click.echo(f"Generating {count} SAT math questions...")
-            generator = QuestionGenerator(model=model_name)
-            questions = generator.generate_questions(count)
+            questions_data = [data]
+        
+        # Convert to Question objects
+        questions = []
+        for q in questions_data:
+            questions.append(Question(
+                question=q.get('question', q.get('content', '')),
+                choices=q['choices'],
+                answer=q.get('answer', q.get('correct_answer', ''))
+            ))
         
         # Evaluate questions
         click.echo("Evaluating accuracy...")
@@ -229,12 +223,11 @@ def accuracy(count, input, output, quiet, model):
 
 
 @evaluate.command()
-@click.option('--count', '-n', default=10, help='Number of generated questions to test')
+@click.option('--input', '-i', type=click.Path(exists=True), required=True, help='Input JSON file with generated questions')
 @click.option('--real-questions', '-r', type=click.Path(exists=True), default='data/real_questions.json', help='Real questions JSON file')
-@click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with generated questions (optional)')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
-def authenticity(count, real_questions, input, output, model):
+def authenticity(input, real_questions, output, model):
     """Test how well generated questions match real SAT questions"""
     
     try:
@@ -242,46 +235,38 @@ def authenticity(count, real_questions, input, output, model):
         model_name = model or get_default_model()
         click.echo(f"Using model: {model_name}")
         
+        # Load generated questions
+        click.echo(f"Loading generated questions from {input}...")
+        with open(input, 'r') as f:
+            gen_data = json.load(f)
+        
+        # Handle both single question and list of questions format
+        if isinstance(gen_data, dict) and 'questions' in gen_data:
+            gen_data = gen_data['questions']
+        elif isinstance(gen_data, dict):
+            gen_data = [gen_data]
+        
+        # Convert to Question objects
+        generated_qs = []
+        for q in gen_data:
+            # Handle different field names (question vs content, answer vs correct_answer)
+            question_text = q.get('question', q.get('content', ''))
+            answer = q.get('answer', q.get('correct_answer', ''))
+            generated_qs.append(Question(
+                question=question_text,
+                choices=q['choices'],
+                answer=answer
+            ))
+        
         # Load real questions
         click.echo(f"Loading real questions from {real_questions}...")
         with open(real_questions, 'r') as f:
             real_qs = json.load(f)
         
-        if len(real_qs) < count:
-            click.echo(f"Warning: Only {len(real_qs)} real questions available, adjusting count.")
-            count = len(real_qs)
-        
-        # Load or generate fake questions
-        if input:
-            click.echo(f"Loading generated questions from {input}...")
-            with open(input, 'r') as f:
-                gen_data = json.load(f)
-            
-            # Handle both single question and list of questions format
-            if isinstance(gen_data, dict) and 'questions' in gen_data:
-                gen_data = gen_data['questions']
-            elif isinstance(gen_data, dict):
-                gen_data = [gen_data]
-            
-            # Convert to Question objects
-            generated_qs = []
-            for q in gen_data[:count]:
-                # Handle different field names (question vs content, answer vs correct_answer)
-                question_text = q.get('question', q.get('content', ''))
-                answer = q.get('answer', q.get('correct_answer', ''))
-                generated_qs.append(Question(
-                    question=question_text,
-                    choices=q['choices'],
-                    answer=answer
-                ))
-            
-            if len(generated_qs) < count:
-                click.echo(f"Warning: Only {len(generated_qs)} generated questions available, adjusting count.")
-                count = len(generated_qs)
-        else:
-            click.echo(f"Generating {count} SAT math questions...")
-            generator = QuestionGenerator(model=model_name)
-            generated_qs = generator.generate_questions(count)
+        # Use the minimum count between real and generated questions
+        count = min(len(real_qs), len(generated_qs))
+        if len(real_qs) != len(generated_qs):
+            click.echo(f"Using {count} questions (minimum of {len(real_qs)} real and {len(generated_qs)} generated)")
         
         # Run authenticity evaluation
         click.echo("\nRunning authenticity evaluation...")
