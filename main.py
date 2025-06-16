@@ -25,11 +25,10 @@ def cli():
 
 @cli.command()
 @click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
-@click.option('--json', 'output_json', is_flag=True, help='Output in JSON format')
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
-@click.option('--output', '-o', type=click.File('w'), help='Output file for results')
+@click.option('--output', '-o', type=click.File('w'), help='Output file for results (JSON format)')
 @click.option('--quiet', is_flag=True, help='Only show summary, suppress individual question display')
-def generate(evaluate, output_json, count, output, quiet):
+def generate(evaluate, count, output, quiet):
     """Generate SAT math question(s)"""
     
     try:
@@ -58,12 +57,12 @@ def generate(evaluate, output_json, count, output, quiet):
                 "answer": question.answer
             }
             
-            if not output_json and not quiet:
+            if not quiet:
                 display_question(question, i, count)
             
             # Evaluate if requested
             if evaluate:
-                if not output_json and not quiet and count == 1:
+                if not quiet and count == 1:
                     click.echo("\nEvaluating accuracy...")
                 evaluation = evaluator.evaluate(question)
                 
@@ -73,25 +72,14 @@ def generate(evaluate, output_json, count, output, quiet):
                 result["evaluation"] = evaluation
                 result["accuracy_verified"] = evaluation['correct']
                 
-                if not output_json and not quiet:
+                if not quiet:
                     display_evaluation(evaluation)
             
             results.append(result)
         
         # Display summary for multiple questions with evaluation
-        if evaluate and count > 1 and not output_json:
+        if evaluate and count > 1 and not quiet:
             display_summary(len(results), accurate_count)
-        
-        # Handle output
-        if output_json:
-            json_output = {"questions": results} if count > 1 else results[0]
-            if count > 1 and evaluate:
-                json_output["summary"] = {
-                    "total": len(results),
-                    "accurate": accurate_count,
-                    "accuracy_rate": accurate_count/len(results) if results else 0
-                }
-            click.echo(json.dumps(json_output, indent=2))
         
         # Save to file if requested
         if output:
