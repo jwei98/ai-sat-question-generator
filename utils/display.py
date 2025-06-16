@@ -11,7 +11,7 @@ def display_section_header(title: str, separator: str = "=", width: int = 50):
 
 def display_question(question: Question, index: int = None, total: int = None):
     """Display a question with optional numbering"""
-    if index and total and total > 1:
+    if index and total:
         display_section_header(f"Question {index}/{total}:")
     else:
         display_section_header("Generated Question:")

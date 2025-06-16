@@ -46,7 +46,7 @@ def generate(evaluate, count, output, quiet):
         results = []
         accurate_count = 0
         
-        if evaluate and count > 1:
+        if evaluate:
             click.echo("Evaluating questions for accuracy...")
         
         for i, question in enumerate(questions, 1):
@@ -62,8 +62,6 @@ def generate(evaluate, count, output, quiet):
             
             # Evaluate if requested
             if evaluate:
-                if not quiet and count == 1:
-                    click.echo("\nEvaluating accuracy...")
                 evaluation = evaluator.evaluate(question)
                 
                 if evaluation['correct']:
@@ -77,8 +75,8 @@ def generate(evaluate, count, output, quiet):
             
             results.append(result)
         
-        # Display summary for multiple questions with evaluation
-        if evaluate and count > 1 and not quiet:
+        # Display summary when evaluation is enabled
+        if evaluate and not quiet:
             display_summary(len(results), accurate_count)
         
         # Save to file if requested
