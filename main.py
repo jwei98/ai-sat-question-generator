@@ -86,12 +86,11 @@ def extract(input, output, limit, model):
 
 
 @cli.command()
-@click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Only show summary, suppress individual question display')
 @click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
-def generate(evaluate, count, output, quiet, model):
+def generate(count, output, quiet, model):
     """Generate SAT math question(s)"""
     
     try:
@@ -110,12 +109,7 @@ def generate(evaluate, count, output, quiet, model):
         questions = generator.generate_questions(count)
         
         # Process and display questions
-        evaluator = AccuracyEvaluator(model=model_name) if evaluate else None
         results = []
-        accurate_count = 0
-        
-        if evaluate:
-            click.echo("Evaluating questions for accuracy...")
         
         for i, question in enumerate(questions, 1):
             result = {
@@ -128,30 +122,12 @@ def generate(evaluate, count, output, quiet, model):
             if not quiet:
                 display_question(question, i, count)
             
-            # Evaluate if requested
-            if evaluate:
-                evaluation = evaluator.evaluate(question)
-                
-                if evaluation['correct']:
-                    accurate_count += 1
-                
-                result["evaluation"] = evaluation
-                result["accuracy_verified"] = evaluation['correct']
-                
-                if not quiet:
-                    display_evaluation(evaluation)
-            
             results.append(result)
-        
-        # Display summary when evaluation is enabled
-        if evaluate and not quiet:
-            display_summary(len(results), accurate_count)
         
         # Save to file if requested
         if output:
-            file_output = create_file_output(results, evaluate, accurate_count)
             with open(output, 'w') as f:
-                json.dump(file_output, f, indent=2)
+                json.dump(results, f, indent=2)
             click.echo(f"\nResults saved to: {output}")
             
     except Exception as e:
