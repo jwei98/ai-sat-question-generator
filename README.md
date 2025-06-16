@@ -2,6 +2,40 @@
 
 A CLI tool for generating SAT math questions and evaluating their quality using Claude.
 
+## Example Output
+
+### Generated Question
+
+```
+A cell phone company charges a monthly fee of $25 plus $0.10 per minute of talk time.
+If a customer's bill for one month was $43, how many minutes of talk time did the
+customer use that month?
+
+A) 180
+B) 430
+C) 250
+D) 180
+
+Correct Answer: A
+```
+
+### Accuracy Evaluation
+
+```
+✓ Mathematically Correct
+Explanation: Setting up equation: 25 + 0.10m = 43, solving gives m = 180 minutes.
+Answer A is correct, and all other choices are verified incorrect.
+```
+
+### Authenticity Evaluation
+
+```
+Authenticity Test Results:
+- Real Questions: 8/10 correctly identified (80%)
+- Generated Questions: 2/10 correctly identified (20%)
+✓ Excellent! The AI has difficulty distinguishing generated from real questions.
+```
+
 ## Features
 
 - **Generate** new SAT-style math questions
