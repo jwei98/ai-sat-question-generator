@@ -40,7 +40,7 @@ def evaluate():
 @click.option('--output', '-o', type=click.Path(), default='data/real_questions.json',
               help='Output JSON file')
 @click.option('--limit', '-l', type=int, help='Limit number of PDFs to process')
-@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+@click.option('--model', '-m', type=str, help='Claude model to use')
 def extract(input, output, limit, model):
     """Extract SAT questions from PDF files"""
     
@@ -89,7 +89,7 @@ def extract(input, output, limit, model):
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Only show summary, suppress individual question display')
-@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+@click.option('--model', '-m', type=str, help='Claude model to use')
 def generate(count, output, quiet, model):
     """Generate SAT math question(s)"""
     
@@ -139,7 +139,7 @@ def generate(count, output, quiet, model):
 @click.option('--input', '-i', type=click.Path(exists=True), required=True, help='Input JSON file with questions')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Show summary only')
-@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+@click.option('--model', '-m', type=str, help='Claude model to use')
 def accuracy(input, output, quiet, model):
     """Evaluate mathematical accuracy of questions"""
     
@@ -226,7 +226,7 @@ def accuracy(input, output, quiet, model):
 @click.option('--input', '-i', type=click.Path(exists=True), required=True, help='Input JSON file with generated questions')
 @click.option('--real-questions', '-r', type=click.Path(exists=True), default='data/real_questions.json', help='Real questions JSON file')
 @click.option('--output', '-o', type=click.Path(), help='Output JSON file')
-@click.option('--model', '-m', type=str, help='Claude model to use (default: claude-3-7-sonnet-latest)')
+@click.option('--model', '-m', type=str, help='Claude model to use')
 def authenticity(input, real_questions, output, model):
     """Test how well generated questions match real SAT questions"""
     
