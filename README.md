@@ -78,7 +78,7 @@ python main.py evaluate authenticity -i questions.json
 
 ### Generate Questions
 
-Create new SAT-style math questions.
+Create new SAT-style math questions based on few-shot examples from real SAT tests.
 
 ```bash
 python main.py generate -n 10 -o generated.json
@@ -92,7 +92,7 @@ Options:
 
 ### Evaluate Accuracy
 
-Check if generated questions are mathematically correct.
+Check if generated questions are mathematically correct. Leverages generator-discriminator asymmetry: while the Geneartor AI can generate plausible-looking questions, the Accuracy AI is able to more reliably verify mathematical correctness.
 
 ```bash
 python main.py evaluate accuracy -i questions.json
@@ -106,7 +106,7 @@ Options:
 
 ### Evaluate Authenticity
 
-Test how well generated questions match real SAT question style by comparing them to actual SAT questions.
+Test how well generated questions match real SAT question style by comparing them to actual SAT questions by leveraging a discriminator model.
 
 **Note:** This command requires a dataset of real SAT questions. You can either use the pre-extracted questions in `data/real_questions.json` or extract your own using the `extract` command below.
 
