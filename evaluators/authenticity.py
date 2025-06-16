@@ -28,7 +28,6 @@ class AuthenticityEvaluator(BaseEvaluator):
                 "id": f"real_{i}",
                 "question": q["question"],
                 "choices": q["choices"],
-                "answer": q["answer"],
                 "is_real": True
             })
         
@@ -38,7 +37,6 @@ class AuthenticityEvaluator(BaseEvaluator):
                 "id": f"gen_{i}",
                 "question": q.question,
                 "choices": q.choices,
-                "answer": q.answer,
                 "is_real": False
             })
         

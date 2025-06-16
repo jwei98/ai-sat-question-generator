@@ -67,8 +67,6 @@ B) {question_data['choices']['B']}
 C) {question_data['choices']['C']}
 D) {question_data['choices']['D']}
 
-Correct Answer: {question_data['answer']}
-
 Based on your analysis, is this question REAL (from an actual SAT) or GENERATED (by AI)?
 
 Respond with a JSON object:
