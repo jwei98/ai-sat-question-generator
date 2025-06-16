@@ -32,21 +32,8 @@ def generate(evaluate, output_json, count, output, quiet):
         if not quiet:
             click.echo(f"Generating {count} SAT math questions...")
         
-        # Generate questions efficiently in chunks if needed
-        if count <= 10:
-            questions = generator.generate_questions(count)
-        else:
-            # For larger batches, generate in chunks of 10
-            questions = []
-            chunks = (count + 9) // 10  # Round up division
-            for chunk_idx in range(chunks):
-                remaining = count - len(questions)
-                chunk_size = min(10, remaining)
-                try:
-                    chunk_questions = generator.generate_questions(chunk_size)
-                    questions.extend(chunk_questions)
-                except Exception as e:
-                    click.echo(f"Error generating chunk {chunk_idx+1}: {e}", err=True)
+        # Generate questions (batching handled internally)
+        questions = generator.generate_questions(count)
         
         # Process and display questions
         evaluator = AccuracyEvaluator() if evaluate else None

@@ -15,7 +15,31 @@ class QuestionGenerator:
         self.client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
         
     def generate_questions(self, count: int = 1) -> List[Question]:
-        """Generate multiple SAT math questions in a single API call"""
+        """Generate multiple SAT math questions, handling batching internally for large counts"""
+        
+        # For small counts, generate all at once
+        if count <= 10:
+            return self._generate_batch(count)
+        
+        # For larger counts, generate in chunks of 10
+        questions = []
+        chunks = (count + 9) // 10  # Round up division
+        
+        for chunk_idx in range(chunks):
+            remaining = count - len(questions)
+            chunk_size = min(10, remaining)
+            
+            try:
+                chunk_questions = self._generate_batch(chunk_size)
+                questions.extend(chunk_questions)
+            except Exception as e:
+                # Re-raise with more context
+                raise ValueError(f"Failed to generate chunk {chunk_idx + 1} of {chunks}: {e}")
+        
+        return questions
+    
+    def _generate_batch(self, count: int) -> List[Question]:
+        """Generate a batch of questions in a single API call (max 10)"""
         
         prompt = get_generate_questions_prompt(count)
         
