@@ -1,0 +1,102 @@
+[
+  {
+    "question": "During a month, Morgan ran r miles at 5 miles per hour and biked b miles at 10 miles per hour. She ran and biked a total of 200 miles that month, and she biked for twice as many hours as she ran. What is the total number of miles that Morgan biked during the month?",
+    "choices": {
+      "A": "80",
+      "B": "100",
+      "C": "120",
+      "D": "160"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "One of the two equations in a linear system is 2x + 6y = 10. The system has no solution. Which of the following could be the other equation in the system?",
+    "choices": {
+      "A": "x + 3y = 5",
+      "B": "x + 3y = -20",
+      "C": "6x - 2y = 0",
+      "D": "6x + 2y = 10"
+    },
+    "answer": "D"
+  },
+  {
+    "question": "In the given system of equations, a and b are constants. The graphs of these equations in the xy-plane intersect at the point (4, y). What is the value of a? \nax + by = 72\n6x + 2by = 56",
+    "choices": {
+      "A": "3",
+      "B": "4",
+      "C": "6",
+      "D": "14"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "A group of 202 people went on an overnight camping trip, taking 60 tents with them. Some of the tents held 2 people each, and the rest held 4 people each. Assuming all the tents were filled to capacity and every person got to sleep in a tent, exactly how many of the tents were 2-person tents?",
+    "choices": {
+      "A": "30",
+      "B": "20",
+      "C": "19",
+      "D": "18"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "Which of the following systems of linear equations has no solution?",
+    "choices": {
+      "A": "y = 6x + 3\ny = 6x + 9",
+      "B": "y = 10\ny = 10x + 10",
+      "C": "y = 14x + 14\ny = 10x + 14",
+      "D": "x = 3\ny = 10"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "In the solution to the system of equations\ny = 2x - 3\n3y = 5x\nwhat is the value of y?",
+    "choices": {
+      "A": "-15",
+      "B": "-9",
+      "C": "9",
+      "D": "15"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "Hiro and Sofia purchased shirts and pants from a store. The price of each shirt purchased was the same and the price of each pair of pants purchased was the same. Hiro purchased 4 shirts and 2 pairs of pants for $86, and Sofia purchased 3 shirts and 5 pairs of pants for $166. Which of the following systems of linear equations represents the situation, if x represents the price, in dollars, of each shirt and y represents the price, in dollars, of each pair of pants?",
+    "choices": {
+      "A": "4x + 2y = 86, 3x + 5y = 166",
+      "B": "4x + 3y = 86, 2x + 5y = 166",
+      "C": "4x + 2y = 166, 3x + 5y = 86",
+      "D": "4x + 3y = 166, 2x + 5y = 86"
+    },
+    "answer": "A"
+  },
+  {
+    "question": "A dance teacher ordered outfits for students for a dance recital. Outfits for boys cost $26, and outfits for girls cost $35. The dance teacher ordered a total of 28 outfits and spent $881. If b represents the number of outfits the dance teacher ordered for boys and g represents the number of outfits the dance teacher ordered for girls, which of the following systems of equations can be solved to find b and g?",
+    "choices": {
+      "A": "26b + 35g = 28, b + g = 881",
+      "B": "26b + 35g = 881, b + g = 28",
+      "C": "26g + 35b = 28, b + g = 881",
+      "D": "26g + 35b = 881, b + g = 28"
+    },
+    "answer": "B"
+  },
+  {
+    "question": "An online bookstore sells novels and magazines. Each novel sells for $4, and each magazine sells for $1. If Sadie purchased a total of 11 novels and magazines that have a combined selling price of $20, how many novels did she purchase?",
+    "choices": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "5"
+    },
+    "answer": "C"
+  },
+  {
+    "question": "What value of p satisfies the equation 5p + 180 = 250?",
+    "choices": {
+      "A": "14",
+      "B": "65",
+      "C": "86",
+      "D": "250"
+    },
+    "answer": "A"
+  }
+]

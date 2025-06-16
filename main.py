@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 from models.question import Question
 from generators.question_generator import QuestionGenerator
 from evaluators.accuracy import AccuracyEvaluator
+from evaluators.authenticity import AuthenticityEvaluator
 from utils.display import (
     display_section_header,
     display_question,
@@ -116,6 +117,65 @@ def evaluate_file(question_json):
         click.echo(f"Error: {e}", err=True)
         raise click.Abort()
 
+
+
+@cli.command()
+@click.option('--count', '-n', default=10, help='Number of generated questions to test')
+@click.option('--real-questions', type=click.Path(exists=True), default='data/real_questions.json', help='Path to real questions JSON file')
+def authenticity_test(count, real_questions):
+    """Test how well generated questions match real SAT questions"""
+    
+    try:
+        # Load real questions
+        click.echo(f"Loading real questions from {real_questions}...")
+        with open(real_questions, 'r') as f:
+            real_qs = json.load(f)
+        
+        if len(real_qs) < count:
+            click.echo(f"Warning: Only {len(real_qs)} real questions available, adjusting count.")
+            count = len(real_qs)
+        
+        # Generate fake questions
+        click.echo(f"Generating {count} SAT math questions...")
+        generator = QuestionGenerator()
+        generated_qs = generator.generate_questions(count)
+        
+        # Run authenticity evaluation
+        click.echo("\nRunning authenticity evaluation...")
+        evaluator = AuthenticityEvaluator()
+        results = evaluator.evaluate(real_qs[:count], generated_qs)
+        
+        # Display results
+        display_section_header("AUTHENTICITY TEST RESULTS")
+        
+        summary = results['summary']
+        click.echo(f"Total Questions: {summary['total_questions']}")
+        click.echo(f"Correct Predictions: {summary['correct_predictions']} / {summary['total_questions']}")
+        click.echo(f"Overall Accuracy: {summary['accuracy_percentage']:.1f}%")
+        
+        click.echo("\nBreakdown:")
+        click.echo(f"- Real Questions: {summary['real_questions']['correctly_identified']} / {summary['real_questions']['count']} correctly identified ({summary['real_questions']['accuracy']*100:.1f}%)")
+        click.echo(f"- Generated Questions: {summary['generated_questions']['correctly_identified']} / {summary['generated_questions']['count']} correctly identified ({summary['generated_questions']['accuracy']*100:.1f}%)")
+        
+        click.echo("\nInterpretation:")
+        if summary['accuracy_percentage'] < 60:
+            click.echo("✓ Excellent! The AI has difficulty distinguishing generated from real questions.")
+        elif summary['accuracy_percentage'] < 70:
+            click.echo("✓ Good! Generated questions are fairly authentic.")
+        elif summary['accuracy_percentage'] < 80:
+            click.echo("⚠ Fair. Generated questions have some distinguishable patterns.")
+        else:
+            click.echo("✗ Poor. Generated questions are easily distinguishable from real ones.")
+        
+        click.echo("=" * 50)
+        
+    except FileNotFoundError:
+        click.echo(f"Error: Real questions file not found at {real_questions}", err=True)
+        click.echo("Please run extract_real_questions.py first to generate the real questions dataset.", err=True)
+        raise click.Abort()
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        raise click.Abort()
 
 
 if __name__ == '__main__':
