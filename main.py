@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 import click
 import json
+import os
 from dotenv import load_dotenv
+from anthropic import Anthropic
 
 from models.question import Question
 from generators.question_generator import QuestionGenerator
 from evaluators.accuracy import AccuracyEvaluator
 from evaluators.authenticity import AuthenticityEvaluator
+from extractors.pdf_extractor import get_pdf_files, extract_questions_from_pdf
 from utils.display import (
     display_section_header,
     display_question,
@@ -33,7 +36,7 @@ def evaluate():
 @cli.command()
 @click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
-@click.option('--output', '-o', type=click.File('w'), help='Output file for results (JSON format)')
+@click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Only show summary, suppress individual question display')
 def generate(evaluate, count, output, quiet):
     """Generate SAT math question(s)"""
@@ -89,8 +92,9 @@ def generate(evaluate, count, output, quiet):
         # Save to file if requested
         if output:
             file_output = create_file_output(results, evaluate, accurate_count)
-            json.dump(file_output, output, indent=2)
-            click.echo(f"\nResults saved to: {output.name}")
+            with open(output, 'w') as f:
+                json.dump(file_output, f, indent=2)
+            click.echo(f"\nResults saved to: {output}")
             
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
@@ -99,17 +103,17 @@ def generate(evaluate, count, output, quiet):
 
 @evaluate.command()
 @click.option('--count', '-n', default=10, help='Number of questions to evaluate')
-@click.option('--input', 'input_file', type=click.Path(exists=True), help='Load questions from JSON file')
-@click.option('--output', '-o', type=click.File('w'), help='Save results to file')
+@click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with questions')
+@click.option('--output', '-o', type=click.Path(), help='Output JSON file')
 @click.option('--quiet', is_flag=True, help='Show summary only')
-def accuracy(count, input_file, output, quiet):
+def accuracy(count, input, output, quiet):
     """Evaluate mathematical accuracy of questions"""
     
     try:
         # Load or generate questions
-        if input_file:
-            click.echo(f"Loading questions from {input_file}...")
-            with open(input_file, 'r') as f:
+        if input:
+            click.echo(f"Loading questions from {input}...")
+            with open(input, 'r') as f:
                 data = json.load(f)
             
             # Handle different formats
@@ -167,15 +171,16 @@ def accuracy(count, input_file, output, quiet):
         
         # Save results if requested
         if output:
-            json.dump({
-                "results": results,
-                "summary": {
-                    "total": len(questions),
-                    "correct": correct_count,
-                    "accuracy_rate": correct_count/len(questions) if questions else 0
-                }
-            }, output, indent=2)
-            click.echo(f"\nResults saved to: {output.name}")
+            with open(output, 'w') as f:
+                json.dump({
+                    "results": results,
+                    "summary": {
+                        "total": len(questions),
+                        "correct": correct_count,
+                        "accuracy_rate": correct_count/len(questions) if questions else 0
+                    }
+                }, f, indent=2)
+            click.echo(f"\nResults saved to: {output}")
             
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
@@ -185,10 +190,10 @@ def accuracy(count, input_file, output, quiet):
 
 @evaluate.command()
 @click.option('--count', '-n', default=10, help='Number of generated questions to test')
-@click.option('--real-questions', type=click.Path(exists=True), default='data/real_questions.json', help='Path to real questions JSON file')
-@click.option('--generated-questions', type=click.Path(exists=True), help='Path to pre-generated questions JSON file (optional)')
-@click.option('--output', '-o', type=click.File('w'), help='Save results to file')
-def authenticity(count, real_questions, generated_questions, output):
+@click.option('--real-questions', '-r', type=click.Path(exists=True), default='data/real_questions.json', help='Real questions JSON file')
+@click.option('--input', '-i', type=click.Path(exists=True), help='Input JSON file with generated questions (optional)')
+@click.option('--output', '-o', type=click.Path(), help='Output JSON file')
+def authenticity(count, real_questions, input, output):
     """Test how well generated questions match real SAT questions"""
     
     try:
@@ -202,9 +207,9 @@ def authenticity(count, real_questions, generated_questions, output):
             count = len(real_qs)
         
         # Load or generate fake questions
-        if generated_questions:
-            click.echo(f"Loading generated questions from {generated_questions}...")
-            with open(generated_questions, 'r') as f:
+        if input:
+            click.echo(f"Loading generated questions from {input}...")
+            with open(input, 'r') as f:
                 gen_data = json.load(f)
             
             # Handle both single question and list of questions format
@@ -264,13 +269,60 @@ def authenticity(count, real_questions, generated_questions, output):
         
         # Save results if requested
         if output:
-            json.dump(results, output, indent=2)
-            click.echo(f"\nResults saved to: {output.name}")
+            with open(output, 'w') as f:
+                json.dump(results, f, indent=2)
+            click.echo(f"\nResults saved to: {output}")
         
     except FileNotFoundError:
         click.echo(f"Error: Real questions file not found at {real_questions}", err=True)
-        click.echo("Please run extract_real_questions.py first to generate the real questions dataset.", err=True)
+        click.echo("Please run 'python main.py extract' first to generate the real questions dataset.", err=True)
         raise click.Abort()
+    except Exception as e:
+        click.echo(f"Error: {e}", err=True)
+        raise click.Abort()
+
+
+@cli.command()
+@click.option('--input', '-i', type=click.Path(exists=True), default='data/Algebra',
+              help='Input directory containing PDF files')
+@click.option('--output', '-o', type=click.Path(), default='data/real_questions.json',
+              help='Output JSON file')
+@click.option('--limit', '-l', type=int, help='Limit number of PDFs to process')
+def extract(input, output, limit):
+    """Extract SAT questions from PDF files"""
+    
+    try:
+        # Initialize Anthropic client
+        client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+        
+        # Get all PDF files
+        pdf_files = get_pdf_files(input)
+        
+        click.echo(f"Found {len(pdf_files)} PDF files in {input}")
+        
+        if limit:
+            pdf_files = pdf_files[:limit]
+            click.echo(f"Processing first {limit} files")
+        
+        all_questions = []
+        
+        # Process each PDF
+        for pdf_file in pdf_files:
+            click.echo(f"\nProcessing: {pdf_file}")
+            questions = extract_questions_from_pdf(client, pdf_file)
+            click.echo(f"Extracted {len(questions)} questions")
+            all_questions.extend(questions)
+        
+        # Save to JSON
+        output_dir = os.path.dirname(output)
+        if output_dir:
+            os.makedirs(output_dir, exist_ok=True)
+        
+        with open(output, 'w', encoding='utf-8') as f:
+            json.dump(all_questions, f, indent=2, ensure_ascii=False)
+        
+        click.echo(f"\nSaved {len(all_questions)} questions to {output}")
+        
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
         raise click.Abort()
