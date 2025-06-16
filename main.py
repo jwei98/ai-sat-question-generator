@@ -24,6 +24,12 @@ def cli():
     pass
 
 
+@cli.group()
+def evaluate():
+    """Evaluate generated questions using various metrics"""
+    pass
+
+
 @cli.command()
 @click.option('--evaluate', is_flag=True, help='Run accuracy evaluation on generated question(s)')
 @click.option('--count', '-n', default=1, help='Number of questions to generate')
@@ -91,39 +97,98 @@ def generate(evaluate, count, output, quiet):
         raise click.Abort()
 
 
-@cli.command()
-@click.argument('question_json', type=click.File('r'))
-def evaluate_file(question_json):
-    """Evaluate a question from a JSON file"""
+@evaluate.command()
+@click.option('--count', '-n', default=10, help='Number of questions to evaluate')
+@click.option('--input', 'input_file', type=click.Path(exists=True), help='Load questions from JSON file')
+@click.option('--output', '-o', type=click.File('w'), help='Save results to file')
+@click.option('--quiet', is_flag=True, help='Show summary only')
+def accuracy(count, input_file, output, quiet):
+    """Evaluate mathematical accuracy of questions"""
     
     try:
-        # Load question from file
-        data = json.load(question_json)
-        question = Question(**data)
+        # Load or generate questions
+        if input_file:
+            click.echo(f"Loading questions from {input_file}...")
+            with open(input_file, 'r') as f:
+                data = json.load(f)
+            
+            # Handle different formats
+            if isinstance(data, dict) and 'questions' in data:
+                questions_data = data['questions']
+            elif isinstance(data, list):
+                questions_data = data
+            else:
+                questions_data = [data]
+            
+            # Convert to Question objects
+            questions = []
+            for q in questions_data[:count]:
+                questions.append(Question(
+                    question=q.get('question', q.get('content', '')),
+                    choices=q['choices'],
+                    answer=q.get('answer', q.get('correct_answer', ''))
+                ))
+        else:
+            click.echo(f"Generating {count} SAT math questions...")
+            generator = QuestionGenerator()
+            questions = generator.generate_questions(count)
         
-        # Evaluate
-        click.echo("Evaluating question accuracy...")
+        # Evaluate questions
+        click.echo("Evaluating accuracy...")
         evaluator = AccuracyEvaluator()
-        result = evaluator.evaluate(question)
+        results = []
+        correct_count = 0
         
-        # Display results
-        display_section_header("Question:")
-        click.echo(question.format_for_display())
-        click.echo(f"\nCorrect Answer: {question.answer}")
+        for i, question in enumerate(questions, 1):
+            if not quiet:
+                display_question(question, i, len(questions))
+            
+            result = evaluator.evaluate(question)
+            
+            if result['correct']:
+                correct_count += 1
+            
+            if not quiet:
+                display_evaluation(result)
+            
+            results.append({
+                "question": question.question,
+                "choices": question.choices,
+                "answer": question.answer,
+                "evaluation": result
+            })
         
-        display_evaluation(result)
+        # Display summary
+        if not quiet or len(questions) > 1:
+            display_section_header("ACCURACY EVALUATION SUMMARY")
+            click.echo(f"Total Questions: {len(questions)}")
+            click.echo(f"Mathematically Correct: {correct_count} ({correct_count/len(questions)*100:.1f}%)")
+            click.echo("=" * 50)
         
+        # Save results if requested
+        if output:
+            json.dump({
+                "results": results,
+                "summary": {
+                    "total": len(questions),
+                    "correct": correct_count,
+                    "accuracy_rate": correct_count/len(questions) if questions else 0
+                }
+            }, output, indent=2)
+            click.echo(f"\nResults saved to: {output.name}")
+            
     except Exception as e:
         click.echo(f"Error: {e}", err=True)
         raise click.Abort()
 
 
 
-@cli.command()
+@evaluate.command()
 @click.option('--count', '-n', default=10, help='Number of generated questions to test')
 @click.option('--real-questions', type=click.Path(exists=True), default='data/real_questions.json', help='Path to real questions JSON file')
 @click.option('--generated-questions', type=click.Path(exists=True), help='Path to pre-generated questions JSON file (optional)')
-def authenticity_test(count, real_questions, generated_questions):
+@click.option('--output', '-o', type=click.File('w'), help='Save results to file')
+def authenticity(count, real_questions, generated_questions, output):
     """Test how well generated questions match real SAT questions"""
     
     try:
@@ -196,6 +261,11 @@ def authenticity_test(count, real_questions, generated_questions):
             click.echo("✗ Poor. Generated questions are easily distinguishable from real ones.")
         
         click.echo("=" * 50)
+        
+        # Save results if requested
+        if output:
+            json.dump(results, output, indent=2)
+            click.echo(f"\nResults saved to: {output.name}")
         
     except FileNotFoundError:
         click.echo(f"Error: Real questions file not found at {real_questions}", err=True)

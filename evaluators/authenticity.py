@@ -1,19 +1,12 @@
-import json
-import os
 import random
-from typing import List, Dict, Tuple, Optional
-from anthropic import Anthropic
-from dotenv import load_dotenv
+from typing import List, Dict, Optional
 
 from models.question import Question
 from prompts.evaluation_prompts import get_authenticity_prompt
+from .base import BaseEvaluator
 
-load_dotenv()
 
-
-class AuthenticityEvaluator:
-    def __init__(self, api_key: Optional[str] = None):
-        self.client = Anthropic(api_key=api_key or os.getenv("ANTHROPIC_API_KEY"))
+class AuthenticityEvaluator(BaseEvaluator):
     
     def evaluate(self, real_questions: List[Dict], generated_questions: List[Question]) -> Dict:
         """
@@ -59,31 +52,16 @@ class AuthenticityEvaluator:
         for q in mixed_questions:
             # Get AI's prediction
             prompt = get_authenticity_prompt(q)
-            
-            response = self.client.messages.create(
-                model="claude-3-5-sonnet-20241022",
-                max_tokens=1000,
-                messages=[
-                    {"role": "user", "content": prompt}
-                ]
-            )
+            content = self.call_api(prompt, max_tokens=1000)
             
             # Extract prediction
-            content = response.content[0].text.lower()
-            
-            # Look for JSON response first
             try:
-                start_idx = content.find('{')
-                end_idx = content.rfind('}') + 1
-                if start_idx != -1 and end_idx != 0:
-                    json_str = content[start_idx:end_idx]
-                    result = json.loads(json_str)
-                    predicted_real = result.get("is_real", "real" in content)
-                else:
-                    predicted_real = "real" in content and "generated" not in content
-            except:
+                result = self.parse_json_response(content)
+                predicted_real = result.get("is_real", False)
+            except ValueError:
                 # Fallback to simple text analysis
-                predicted_real = "real" in content and "generated" not in content
+                content_lower = content.lower()
+                predicted_real = "real" in content_lower and "generated" not in content_lower
             
             predictions.append({
                 "id": q["id"],
