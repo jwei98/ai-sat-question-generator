@@ -8,11 +8,18 @@ A question/answer pair is considered correct if and only if:
 - The given answer is correct
 - All other answer choices are incorrect
 
+Your verification process should be:
+<verification_process>
+1. Verify if the given answer is correct, and why.
+2. Verify one by one if all other answer choices are incorrect, and why.
+3. If the answer is correct and all other answer choices are incorrect, return true. Otherwise, return false.
+</verification_process>
+
 Return a JSON response describing the correctness of the question/answer pair with this EXACT format:
 <json>
 {{
     "correct": true or false,
-    "explanation": "Brief explanation of your verification on a single line"
+    "explanation": "Summary of your verification process"
 }}
 </json>
 
