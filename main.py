@@ -122,7 +122,8 @@ def evaluate_file(question_json):
 @cli.command()
 @click.option('--count', '-n', default=10, help='Number of generated questions to test')
 @click.option('--real-questions', type=click.Path(exists=True), default='data/real_questions.json', help='Path to real questions JSON file')
-def authenticity_test(count, real_questions):
+@click.option('--generated-questions', type=click.Path(exists=True), help='Path to pre-generated questions JSON file (optional)')
+def authenticity_test(count, real_questions, generated_questions):
     """Test how well generated questions match real SAT questions"""
     
     try:
@@ -135,10 +136,37 @@ def authenticity_test(count, real_questions):
             click.echo(f"Warning: Only {len(real_qs)} real questions available, adjusting count.")
             count = len(real_qs)
         
-        # Generate fake questions
-        click.echo(f"Generating {count} SAT math questions...")
-        generator = QuestionGenerator()
-        generated_qs = generator.generate_questions(count)
+        # Load or generate fake questions
+        if generated_questions:
+            click.echo(f"Loading generated questions from {generated_questions}...")
+            with open(generated_questions, 'r') as f:
+                gen_data = json.load(f)
+            
+            # Handle both single question and list of questions format
+            if isinstance(gen_data, dict) and 'questions' in gen_data:
+                gen_data = gen_data['questions']
+            elif isinstance(gen_data, dict):
+                gen_data = [gen_data]
+            
+            # Convert to Question objects
+            generated_qs = []
+            for q in gen_data[:count]:
+                # Handle different field names (question vs content, answer vs correct_answer)
+                question_text = q.get('question', q.get('content', ''))
+                answer = q.get('answer', q.get('correct_answer', ''))
+                generated_qs.append(Question(
+                    question=question_text,
+                    choices=q['choices'],
+                    answer=answer
+                ))
+            
+            if len(generated_qs) < count:
+                click.echo(f"Warning: Only {len(generated_qs)} generated questions available, adjusting count.")
+                count = len(generated_qs)
+        else:
+            click.echo(f"Generating {count} SAT math questions...")
+            generator = QuestionGenerator()
+            generated_qs = generator.generate_questions(count)
         
         # Run authenticity evaluation
         click.echo("\nRunning authenticity evaluation...")
